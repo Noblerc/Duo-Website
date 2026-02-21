@@ -36,6 +36,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+html { overflow-x: hidden; }
 a { text-decoration: none; color: inherit; }
 button { border: none; background: none; font-family: inherit; cursor: pointer; }
 img { display: block; max-width: 100%; }
@@ -47,7 +48,7 @@ img { display: block; max-width: 100%; }
 .nav-logo { display: flex; align-items: center; }
 .nav-logo img { height: 28px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 20px; }
-.nav-links a { font-weight: 500; font-size: 16px; color: var(--text-secondary); transition: color .2s; }
+.nav-links a { font-weight: 500; font-size: 14px; color: var(--text-secondary); transition: color .2s; }
 .nav-links a:hover { color: var(--black); }
 
 /* ── BUTTONS ── */
@@ -55,7 +56,7 @@ img { display: block; max-width: 100%; }
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 50%, #000 100%);
   color: #fff; padding: 12px 20px; border-radius: 1000px;
-  font-weight: 600; font-size: 16px;
+  font-weight: 600; font-size: 14px;
   border: none;
   box-shadow: 0 2px 8px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06);
   transition: opacity .2s, transform .15s, box-shadow .2s;
@@ -69,7 +70,7 @@ img { display: block; max-width: 100%; }
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(180deg, #4aadff 0%, #1a8eeb 50%, #0d7ed6 100%);
   color: #fff; padding: 16px 28px; border-radius: 1000px;
-  font-weight: 600; font-size: 18px;
+  font-weight: 600; font-size: 16px;
   border: none;
   box-shadow: 0 2px 8px rgba(19,151,246,.35), inset 0 1px 0 rgba(255,255,255,.2);
   transition: opacity .2s, transform .15s, box-shadow .2s;
@@ -91,20 +92,20 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(90deg, #F8F5FF 0%, #F8F5FF 38%, #F8F5FF 100%);
 }
 .hero:has(.hero-spline-phone-wrap.amy-active) .hero-bg {
-  background: linear-gradient(90deg, #FFF4ED 0%, #FFF4ED 38%, #FFF4ED 100%);
+  background: linear-gradient(90deg, #FFF6EF 0%, #FFF6EF 38%, #FFF6EF 100%);
 }
 .hero-spline { position: absolute; width: 760px; height: 1300px; left: 50%; top: 50%; transform: translate(-50%, -33%); z-index: 0; overflow: hidden; border-radius: 0 0 61px 61px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .hero-spline.loaded { opacity: 1; }
 .hero-spline-scene { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 61px 61px; }
 .hero-spline-scene canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
-.hero-spline-scene::after { content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 1; mix-blend-mode: color; pointer-events: none; }
-.hero-spline-phone-wrap:not(.sarah-active):not(.david-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
+.hero-spline-scene::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; z-index: 1; mix-blend-mode: color; pointer-events: none; }
+.hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
 .hero-spline-phone-wrap.sarah-active .hero-spline-scene::after { background: linear-gradient(90deg, #fea9be 0%, #fea9be 100%); }
 .hero-spline-phone-wrap.david-active .hero-spline-scene::after { background: linear-gradient(90deg, #b89be6 0%, #b89be6 100%); }
 .hero-spline-phone-wrap.amy-active .hero-spline-scene::after { background: linear-gradient(90deg, #E88B5C 0%, #E88B5C 100%); }
 .hero-spline-phone-wrap.sarah-active .chat-phone { background: #ffc3e06b; }
 .hero-spline-phone-wrap.david-active .chat-phone { background: rgba(226, 168, 255, .42); }
-.hero-spline-phone-wrap.amy-active .chat-phone { background: rgba(255, 122, 60, .42); }
+.hero-spline-phone-wrap.amy-active .chat-phone { background: #ffa57b6b; }
 .hero-inner {
   position: relative; z-index: 3;
   max-width: var(--max-w); margin: 0 auto; padding: 160px 24px 80px;
@@ -113,7 +114,7 @@ img { display: block; max-width: 100%; }
 .hero-left { text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
 .hero h1 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; }
 .hero h1 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.hero-sub { font-size: 18px; font-weight: 500; line-height: 1.44; color: var(--text-secondary); max-width: 471px; margin-bottom: 28px; }
+.hero-sub { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 471px; margin-bottom: 28px; }
 
 /* ── HERO CHAT ── */
 .hero-right { position: relative; display: flex; justify-content: center; padding-top: 0; margin-left: -60px; margin-top: -30px; }
@@ -167,7 +168,7 @@ img { display: block; max-width: 100%; }
   background: url('https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce') center/cover;
   overflow: hidden; position: relative;
 }
-.chat-avatar::after { content: ''; position: absolute; inset: 0; background: rgba(139,92,246,.25); mix-blend-mode: multiply; border-radius: 50%; }
+.chat-avatar::after { display: none; }
 .chat-ai-bubble {
   background: rgba(240,245,252,.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   padding: 10px 12px; border-radius: 14px 14px 14px 4px;
@@ -225,64 +226,76 @@ img { display: block; max-width: 100%; }
 .chat-phone-block.chat-user-msg { align-self: flex-end; }
 .chat-phone-panel[data-index="0"] .chat-user-msg { padding: 6px 10px; font-size: 10px; line-height: 1.35; max-width: 85%; }
 .chat-phone-panel[data-index="0"] .chat-ai-bubble { padding: 6px 10px; font-size: 10px; line-height: 1.35; }
-.chat-phone-panel[data-index="0"] .chat-avatar { width: 28px; height: 28px; }
-/* Action bubble design from Figma (node 201:204): glassmorphic card, pill header, clean detail */
-.chat-phone-panel[data-index="0"] .chat-ai-row { gap: 8px; align-items: flex-end; }
-.chat-phone-panel[data-index="0"] .chat-action-bubble {
-  flex: 1; max-width: 100%;
-  background: rgba(255,255,255,0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.32); border-radius: 16px;
-  padding: 4px; overflow: hidden; box-shadow: none;
+/* ── SHARED DUO CHAT LAYOUT ── */
+.chat-phone-panel.duo-chat { gap: 10px; }
+.chat-phone-panel.duo-chat .chat-avatar { width: 28px; height: 28px; }
+.duo-chat .dc-user {
+  align-self: flex-end; background: #1397F6; color: #fefefe;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; line-height: 16px;
+  padding: 8px 12px; border-radius: 14px 14px 4px 14px;
 }
-.chat-phone-panel[data-index="0"] .chat-action-head {
+.duo-chat .dc-ai-row { display: flex; gap: 4px; align-items: flex-start; }
+.duo-chat .dc-ai-text {
+  flex: 1; background: rgba(255,255,255,0.56); color: #000;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; line-height: 16px;
+  padding: 8px 10px; border-radius: 14px 14px 14px 4px;
+}
+.duo-chat .dc-action-row { display: flex; gap: 8px; align-items: flex-start; }
+.duo-chat .dc-action {
+  flex: 1; background: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.32);
+  border-radius: 16px; padding: 4px; overflow: hidden;
+}
+.duo-chat .dc-action-head {
   display: flex; align-items: center; gap: 6px;
-  padding: 4px 8px 4px 4px;
   background: rgba(255,255,255,0.56); border-radius: 1000px;
-  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: #000; line-height: 12px;
+  padding: 4px 8px 4px 4px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: #000; line-height: 12px;
 }
-.chat-phone-panel[data-index="0"] .chat-action-icon {
+.duo-chat .dc-action-icon {
   width: 16px; height: 16px; border-radius: 100px; background: rgba(19,151,246,0.2); flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.chat-phone-panel[data-index="0"] .chat-action-icon img,
-.chat-phone-panel[data-index="0"] .chat-action-icon svg { width: 10px; height: 10px; }
-.chat-phone-panel[data-index="0"] .chat-action-title { flex: 1; }
-.chat-phone-panel[data-index="0"] .chat-action-chevron { color: #000; flex-shrink: 0; }
-.chat-phone-panel[data-index="0"] .chat-action-chevron svg { width: 12px; height: 12px; }
-.chat-phone-panel[data-index="0"] .chat-action-detail {
-  padding: 8px 12px; margin-left: 0; border-left: none;
-  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: rgba(0,0,0,0.72); line-height: 16px;
+.duo-chat .dc-action-icon img { width: 12px; height: 12px; display: block; }
+.duo-chat .dc-action-title { flex: 1; }
+.duo-chat .dc-action-chevron { flex-shrink: 0; width: 12px; height: 12px; }
+.duo-chat .dc-action-chevron img { width: 100%; height: 100%; display: block; }
+.duo-chat .dc-action-detail { display: flex; gap: 12px; align-items: stretch; padding: 8px 12px; }
+.duo-chat .dc-action-detail-line { width: 1px; background: rgba(0,0,0,0.12); flex-shrink: 0; order: -1; }
+.duo-chat .dc-action-detail-text {
+  flex: 1; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: rgba(0,0,0,0.64); line-height: 14px;
 }
-/* AI text response rows: avatar top-aligned, smaller gap (from Figma node 201:194, 201:262) */
-.chat-phone-panel[data-index="0"] .chat-ai-row--text { gap: 4px; align-items: flex-start; }
-/* Tailed bubble: speech bubble with SVG tail (from Figma node 201:185) */
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed { display: flex; align-items: stretch; overflow: visible; }
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed--user { align-self: flex-end; max-width: 85%; }
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed--ai { flex: 1; }
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed-text {
-  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 10px; line-height: 1.35;
+.duo-chat .dc-success { width: 88px; height: 88px; display: block; object-fit: contain; }
+.duo-chat .dc-success-bar {
+  display: flex; align-items: center; gap: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0.32) 100%);
+  border-radius: 1000px; padding: 10px 14px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: #000; line-height: 14px;
 }
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed--user .chat-bubble-tailed-text {
-  background: #1397F6; color: #fefefe; padding: 7px 10px;
-  border-radius: 14px 14px 4px 14px;
-}
-.chat-phone-panel[data-index="0"] .chat-bubble-tailed--ai .chat-bubble-tailed-text {
-  background: rgba(255,255,255,0.56); color: #000; padding: 7px 10px;
-  border-radius: 14px 14px 14px 4px; flex: 1;
-}
-.chat-phone-panel[data-index="0"] .chat-tool { margin-left: 20px; border-radius: 10px; }
-.chat-phone-panel[data-index="0"] .chat-tool-head { padding: 6px 8px 6px 6px; font-size: 9px; gap: 5px; }
-.chat-phone-panel[data-index="0"] .chat-tool-icon { width: 14px; height: 14px; }
-.chat-phone-panel[data-index="0"] .chat-tool-icon svg { width: 7px; height: 7px; }
-.chat-phone-panel[data-index="0"] .chat-tool-body { padding: 0 8px 8px 8px; }
-.chat-phone-panel[data-index="0"] .chat-tool-body p { font-size: 9px; margin-bottom: 4px; }
+.duo-chat .dc-success-bar svg { flex-shrink: 0; }
+/* Sarah overrides */
+.chat-phone-panel[data-index="1"] .dc-success { width: 68px; height: 68px; }
+.chat-phone-panel[data-index="1"] .dc-user { background: #FF5895; }
+.chat-phone-panel[data-index="1"] .dc-action-icon { background: rgba(255,88,149,0.2); }
+.chat-phone-panel[data-index="1"] .chat-avatar { background-image: url("assets/sarah's duo.png"); }
+/* David overrides */
+.chat-phone-panel[data-index="2"] .dc-success { width: 68px; height: 68px; }
+.chat-phone-panel[data-index="2"] .dc-user { background: #B213F6; }
+.chat-phone-panel[data-index="2"] .dc-action-icon { background: rgba(178,19,246,0.2); }
+.chat-phone-panel[data-index="2"] .chat-avatar { background-image: url("assets/david's duo.png"); }
+/* Amy overrides */
+.chat-phone-panel[data-index="3"] .dc-success { width: 68px; height: 68px; }
+.chat-phone-panel[data-index="3"] .dc-user { background: #FF7A3C; }
+.chat-phone-panel[data-index="3"] .dc-action-icon { background: rgba(255,122,60,0.2); }
+.chat-phone-panel[data-index="3"] .chat-avatar { background-image: url("assets/amy's duo.png"); }
+/* Animation */
 .chat-phone-panel.active .chat-phone-block { animation: chat-msg-in 0.35s ease forwards; }
 .chat-phone-panel.active .chat-phone-block:nth-child(2) { animation-delay: 0s; }
-.chat-phone-panel.active .chat-phone-block:nth-child(3) { animation-delay: 0.6s; }
-.chat-phone-panel.active .chat-phone-block:nth-child(4) { animation-delay: 1.2s; }
-.chat-phone-panel.active .chat-phone-block:nth-child(5) { animation-delay: 1.8s; }
-.chat-phone-panel.active .chat-phone-block:nth-child(6) { animation-delay: 2.4s; }
-.chat-phone-panel.active .chat-phone-block:nth-child(7) { animation-delay: 3s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(3) { animation-delay: 0.5s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(4) { animation-delay: 1s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(5) { animation-delay: 1.5s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(6) { animation-delay: 2s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(7) { animation-delay: 2.5s; }
+.chat-phone-panel.active .chat-phone-block:nth-child(8) { animation-delay: 3s; }
 @keyframes chat-msg-in { to { opacity: 1; } }
 
 /* ── DUO AVATARS BAR ── */
@@ -316,10 +329,10 @@ img { display: block; max-width: 100%; }
 .duo-sub { font-size: 13px; color: var(--text-secondary); }
 
 /* ── SECTION HEADINGS ── */
-.sec-head { text-align: center; padding: 100px 24px 0; }
+.sec-head { text-align: center; padding: 140px 24px 0; }
 .sec-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 24px; }
 .sec-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.sec-head p { font-size: 18px; font-weight: 500; line-height: 1.44; color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
+.sec-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
 .sec-head p em { font-style: italic; }
 
 /* ── CAROUSEL ── */
@@ -327,14 +340,15 @@ img { display: block; max-width: 100%; }
 .carousel .splide__track { overflow: visible; }
 .carousel .splide__list { }
 .carousel .splide { display: flex; flex-direction: column; }
-.carousel .splide__arrows { display: flex; justify-content: center; gap: 12px; padding: 24px 0; order: 1; }
+.carousel .splide__arrows { display: flex; justify-content: center; gap: 12px; padding: 48px 0 0; order: 1; }
 .carousel .splide__track { order: 0; }
 .carousel .splide__arrow { position: relative; width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 1px 3px rgba(0,0,0,.06); display: flex; align-items: center; justify-content: center; transition: background-color .2s, border-color .2s, box-shadow .2s; cursor: pointer; opacity: 1; }
 .carousel .splide__arrow svg { display: none; }
 .carousel .splide__arrow .splide-arrow-img { width: 18px; height: 18px; display: block; filter: brightness(0); pointer-events: none; }
 .carousel .splide__arrow--prev .splide-arrow-img { transform: scaleX(-1); }
 .carousel .splide__arrow--prev { transform: none; }
-.carousel .splide__arrow:hover { background-color: #f8fafc; border-color: rgba(0,0,0,.12); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.carousel .splide__arrow:hover { background-color: #111; border-color: #111; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.carousel .splide__arrow:hover .splide-arrow-img { filter: brightness(0) invert(1); }
 .carousel .splide__arrow:disabled { opacity: .35; cursor: default; }
 .carousel-card {
   width: 345px; height: 516px; border-radius: 28px;
@@ -361,20 +375,33 @@ img { display: block; max-width: 100%; }
 .carousel-card-chat { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; flex: 1; isolation: isolate; min-height: 0; }
 .carousel-chat-svg { display: block; width: auto; max-width: 100%; height: auto; transform: translateZ(0); }
 .chat-bubble { padding: 10px; border-radius: 13px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; line-height: 17px; max-width: 100%; }
-.chat-duo { background: rgba(255,255,255,0.8); backdrop-filter: blur(6px); color: #000; border-bottom-right-radius: 4px; }
-.chat-user { background: #1397F6; color: #fefefe; align-self: flex-end; border-bottom-right-radius: 4px; text-align: right; }
-.chat-action { background: rgba(255,255,255,0.4); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.32); border-radius: 16px; padding: 4px; overflow: hidden; }
+.chat-duo { background: rgba(255,255,255,0.8); backdrop-filter: blur(6px); color: #000; border-bottom-left-radius: 4px; align-self: flex-start; }
+.chat-user { background: #1397F6; color: #fefefe; align-self: flex-end; border-bottom-right-radius: 4px; }
+.chat-action { background: rgba(255,255,255,0.4); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.32); border-radius: 16px; padding: 4px; overflow: hidden; align-self: flex-start; }
 .chat-action-bar { background: rgba(255,255,255,0.56); border-radius: 1000px; padding: 4px 8px 4px 4px; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; }
 .chat-action-icon { width: 16px; height: 16px; border-radius: 100px; background: #1397F6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .chat-action-icon svg { width: 10px; height: 10px; }
-.chat-action-body { padding: 8px 12px; font-size: 12px; font-weight: 500; line-height: 16px; color: rgba(0,0,0,0.72); font-family: 'Inter', sans-serif; }
-.chat-action-task { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.32); border-radius: 12px; padding: 0 8px 0 0; margin-top: 8px; font-size: 11px; font-weight: 500; color: rgba(0,0,0,0.72); font-family: 'Inter', sans-serif; }
+
+.splide__slide:nth-child(1) .chat-user { background: #FF7A3C; }
+.splide__slide:nth-child(1) .chat-action-icon { background: #FF7A3C; }
+.splide__slide:nth-child(3) .chat-user { background: #FF5895; }
+.splide__slide:nth-child(3) .chat-action-icon { background: #FF5895; }
+
+.splide__slide:nth-child(4) .chat-user { background: #B213F6; }
+.splide__slide:nth-child(4) .chat-action-icon { background: #B213F6; }
+
+.splide__slide:nth-child(6) .chat-user { background: #FF5895; }
+.splide__slide:nth-child(6) .chat-action-icon { background: #FF5895; }
+.splide__slide:nth-child(7) .chat-user { background: #FF7A3C; }
+.splide__slide:nth-child(7) .chat-action-icon { background: #FF7A3C; }
+.chat-action-body { padding: 8px 12px; font-size: 12px; font-weight: 500; line-height: 16px; color: rgba(0,0,0,1); font-family: 'Inter', sans-serif; }
+.chat-action-task { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.32); border-radius: 12px; padding: 0 8px 0 0; margin-top: 8px; font-size: 11px; font-weight: 500; color: rgba(0,0,0,0.64); font-family: 'Inter', sans-serif; }
 .chat-action-task-icon { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .chat-action-task-icon svg { width: 14px; height: 14px; }
 
 /* ── FEATURES GRID ── */
-.features-grid { max-width: var(--max-w); margin: 48px auto 0; padding: 0 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.fcard { background: #F3F7FC; border-radius: var(--radius-lg); overflow: hidden; height: 396px; display: flex; flex-direction: column; position: relative; }
+.features-grid { max-width: var(--max-w); margin: 48px auto 0; padding: 0 24px 120px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.fcard { background: #f5f5f5; border-radius: var(--radius-lg); overflow: hidden; height: 396px; display: flex; flex-direction: column; position: relative; }
 .fcard-top { padding: 32px 32px 0; flex-shrink: 0; }
 .fcard-top h3 { font-size: 24px; font-weight: 500; line-height: 24px; margin-bottom: 8px; }
 .fcard-top p { font-size: 15px; font-weight: 500; line-height: 22px; color: var(--text-secondary); }
@@ -384,59 +411,65 @@ img { display: block; max-width: 100%; }
 .fcard-cta .fcard-vis { align-items: flex-start; overflow: hidden; }
 
 /* ── COMPARISON ── */
-.comparison { padding: 100px 24px 60px; }
-.comp-inner { max-width: 880px; margin: 0 auto; }
-.comp-head { text-align: center; margin-bottom: 32px; }
+.comparison { padding: 140px 24px 100px; background: #f5f5f5; }
+.comp-inner { max-width: var(--max-w); margin: 0 auto; }
+.comp-head { text-align: center; margin-bottom: 48px; }
 .comp-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; }
 .comp-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.comp-head p { font-size: 18px; font-weight: 500; line-height: 1.44; color: var(--text-secondary); }
-.comp-cta { text-align: center; margin-bottom: 40px; }
-.comp-logos { display: flex; justify-content: flex-end; gap: 52px; margin-bottom: 8px; padding-right: 40px; font-size: 14px; font-weight: 600; }
-.comp-table { border-radius: 12px; overflow: hidden; }
-.comp-row { display: flex; align-items: center; padding: 16px 20px; gap: 12px; background: #fff; position: relative; border-bottom: 1px solid rgba(0,0,0,.04); }
-.comp-row:last-child { border-bottom: none; }
-.comp-row-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; z-index: 1; }
-.comp-row-icon img { width: 100%; height: 100%; }
-.comp-row-text { flex: 1; font-size: 14px; font-weight: 500; position: relative; z-index: 1; }
-.comp-scores { display: flex; gap: 52px; padding: 0 32px; flex-shrink: 0; position: relative; z-index: 1; }
-.comp-scores svg { width: 24px; height: 24px; flex-shrink: 0; }
-.comp-scores svg:first-child { filter: brightness(10); }
-.comp-hl { position: absolute; right: 220px; top: 0; bottom: 0; width: 80px; background: var(--blue); z-index: 0; }
-.comp-row:first-child .comp-hl { border-radius: 12px 12px 0 0; }
-.comp-row:last-child .comp-hl { border-radius: 0 0 12px 12px; }
-.comp-legend { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
-.comp-legend-l { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-.comp-legend-r { display: flex; gap: 16px; font-size: 14px; }
+.comp-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: rgba(0,0,0,0.64); }
+.comp-logos { display: flex; justify-content: flex-end; margin-bottom: 12px; align-items: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+.comp-logos .comp-logos-inner { display: flex; gap: 34px; padding: 0 0 0 24px; align-items: center; }
+.comp-logos img { height: 21px; width: auto; }
+.comp-table { border-radius: 12px; overflow: hidden; position: relative; max-width: 720px; margin: 0 auto; }
+.comp-table-hl { position: absolute; top: 0; bottom: 0; left: 406px; width: 87px; background: var(--blue); border-radius: 12px; z-index: 1; }
+.comp-row { display: flex; align-items: center; padding: 20px 0 20px 20px; gap: 12px; }
+.comp-row:nth-child(even) { background: #fff; border-radius: 4px; }
+.comp-row:nth-child(odd) { background: transparent; }
+.comp-row:last-child { background: #f5f5f5; border-radius: 0 0 12px 12px; }
+.comp-row-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; z-index: 2; object-fit: contain; }
+.comp-row-text { flex: 1; font-size: 14px; font-weight: 500; line-height: 1.2; position: relative; z-index: 2; }
+.comp-scores { display: flex; gap: 94px; padding: 0 24px; flex-shrink: 0; position: relative; z-index: 2; }
+.comp-scores img { width: 24px; height: 24px; flex-shrink: 0; }
+.comp-legend { margin-top: 24px; padding: 24px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 720px; margin-left: auto; margin-right: auto; }
+.comp-legend-l { font-size: 14px; color: rgba(0,0,0,0.64); line-height: 1.5; font-weight: 500; }
+.comp-legend-r { display: flex; gap: 16px; font-size: 14px; font-weight: 500; }
 .comp-legend-item { display: flex; align-items: center; gap: 8px; }
-.comp-legend-item svg { width: 20px; height: 20px; }
+.comp-legend-item img { width: 20px; height: 20px; }
 
 /* ── TESTIMONIALS ── */
-.testimonials { padding: 100px 24px 80px; }
-.test-head { text-align: center; margin-bottom: 48px; }
+.testimonials { padding: 140px 0 120px; }
+.test-head { text-align: center; margin-bottom: 48px; padding: 0 24px; }
 .test-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; }
 .test-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.test-head p { font-size: 18px; font-weight: 500; color: var(--text-secondary); }
-.test-grid { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.test-head p { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
+.test-grid { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 24px; }
 .test-row { display: flex; gap: 24px; }
-.tcard { border-radius: 12px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 275px; background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; position: relative; }
+.tcard { border-radius: 12px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 275px; background: #f5f5f5; border: none; overflow: hidden; position: relative; }
 .tcard.blue { background: var(--blue); color: #fff; border-color: transparent; }
 .tcard.blue .tcard-txt { color: #fff; }
 .tcard.blue .tcard-name { color: #fff; }
 .tcard.blue .tcard-foot { border-color: rgba(255,255,255,.2); }
 .tcard-txt { font-size: 16px; font-weight: 500; line-height: 22px; color: var(--black); flex: 1; }
 .tcard-foot { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
-.tcard-ava { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-light)); border: 2px solid #fff; flex-shrink: 0; }
+.tcard-ava { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-light)); border: 2px solid #fff; flex-shrink: 0; overflow: hidden; }
+.tcard-ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tcard-name { font-size: 14px; font-weight: 500; }
 
 /* ── BOTTOM CTA ── */
-.bottom-cta { background: var(--blue-bg); position: relative; overflow: hidden; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.bottom-cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 500px; height: 500px; pointer-events: none; }
-.bottom-cta-orb img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 60px 60px rgba(19,151,246,.15)); }
-.bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; margin: 0 auto; padding: 100px 24px 0; }
+.bottom-cta { background: var(--blue-bg); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
+.bottom-cta.orb-sarah { background: #FFF4F7; }
+.bottom-cta.orb-david { background: #F8F5FF; }
+.bottom-cta.orb-amy { background: #FFF6EF; }
+.bottom-cta-orb { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; pointer-events: none; }
+.bottom-cta-orb canvas { width: 100%; height: 100%; display: block; }
+.bottom-cta-orb::after { content: ''; position: absolute; inset: 0; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
+.bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
+.bottom-cta.orb-david .bottom-cta-orb::after { background: #b89be6; }
+.bottom-cta.orb-amy .bottom-cta-orb::after { background: #E88B5C; }
+.bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 0 24px; }
 .bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; }
 .bottom-cta h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.bottom-cta p { font-size: 18px; font-weight: 500; line-height: 1.44; color: var(--text-secondary); margin-bottom: 32px; }
-.bottom-cta-footer { position: relative; z-index: 1; width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px 24px; display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.bottom-cta p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; }
 
 /* ── FOOTER ── */
 .footer-logo { display: flex; align-items: center; }
@@ -445,6 +478,25 @@ img { display: block; max-width: 100%; }
 .footer-social { width: 40px; height: 40px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; border: 1px solid #fff; transition: transform .2s; }
 .footer-social:hover { transform: translateY(-2px); }
 .footer-social svg { width: 20px; height: 20px; }
+
+/* ── SITE FOOTER ── */
+.site-footer { background: #fff; border-top: 1px solid var(--border); padding: 64px 24px 32px; }
+.site-footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.sf-top { display: flex; justify-content: space-between; gap: 64px; margin-bottom: 48px; }
+.sf-brand { max-width: 280px; display: flex; flex-direction: column; gap: 16px; }
+.sf-brand .footer-logo img { height: 24px; }
+.sf-tagline { font-size: 14px; color: rgba(0,0,0,0.44); line-height: 1.5; font-weight: 500; }
+.sf-brand .footer-socials { margin-top: 4px; }
+.sf-brand .footer-social { background: var(--card-bg); border-color: var(--border); color: rgba(0,0,0,0.44); }
+.sf-brand .footer-social:hover { color: var(--black); }
+.sf-brand .footer-social svg { fill: currentColor; }
+.sf-cols { display: flex; gap: 64px; }
+.sf-col { display: flex; flex-direction: column; gap: 12px; }
+.sf-col h4 { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.sf-col a { font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.52); text-decoration: none; transition: color .2s; }
+.sf-col a:hover { color: var(--black); }
+.sf-bottom { padding-top: 24px; border-top: 1px solid var(--border); }
+.sf-bottom p { font-size: 13px; color: rgba(0,0,0,0.36); font-weight: 500; }
 
 /* ── ANIMATIONS ── */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
@@ -459,23 +511,32 @@ img { display: block; max-width: 100%; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { justify-content: center; }
   .chat-phone { max-width: 324px; }
-  .comp-scores { gap: 50px; }
-  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
+  .comp-scores { gap: 60px; }
+  .comp-logos .comp-logos-inner { gap: 60px; }
+  .comp-table-hl { left: 55%; width: 70px; }
+  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hero { border-radius: 0 0 32px 32px; }
   .hero-spline, .hero-spline-scene { border-radius: 0 0 32px 32px; }
-  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
+  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 36px; }
   .features-grid { grid-template-columns: 1fr; }
   .fcard { height: auto; min-height: 360px; }
   .test-row { flex-direction: column; }
   .comp-scores { gap: 24px; }
-  .bottom-cta-footer { flex-direction: column; gap: 16px; }
-  .sec-head, .comparison, .testimonials { padding-top: 80px; }
-  .bottom-cta { min-height: 500px; }
-  .bottom-cta-orb { width: 300px; height: 300px; }
+  .comp-logos .comp-logos-inner { gap: 24px; }
+  .comp-table-hl { display: none; }
+  .comp-legend { flex-direction: column; gap: 16px; }
+  .comp-legend-r { flex-wrap: wrap; }
+  .sf-top { flex-direction: column; gap: 40px; }
+  .sf-brand { max-width: 100%; }
+  .sf-cols { gap: 32px; }
+  .sf-bottom { text-align: center; }
+  .sec-head, .comparison, .testimonials { padding-top: 100px; }
+  .bottom-cta { min-height: 80vh; }
+  .bottom-cta-orb { width: 350px; height: 350px; }
 }
 </style>
 </head>
@@ -512,89 +573,171 @@ img { display: block; max-width: 100%; }
           </div>
         </div>
         <div class="chat-phone" id="chat-phone">
-          <div class="chat-phone-panel" data-index="0">
+          <div class="chat-phone-panel duo-chat" data-index="0">
             <div class="chat-phone-header">
               <img src="https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce" alt="" class="chat-phone-header-avatar">
               <span class="chat-phone-header-name">Yumi</span>
             </div>
-            <!-- 1. User message with tail -->
-            <div class="chat-phone-block chat-bubble-tailed chat-bubble-tailed--user">
-              <div class="chat-bubble-tailed-text">schedule date night with Emily</div>
-            </div>
-            <!-- 2. AI direct response with tail -->
-            <div class="chat-phone-block chat-ai-row chat-ai-row--text">
+            <div class="chat-phone-block dc-user">schedule date night with Emily</div>
+            <div class="chat-phone-block dc-ai-row">
               <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-bubble-tailed chat-bubble-tailed--ai">
-                <div class="chat-bubble-tailed-text">Given you had lunch with Emily first date, I suggest kicking up a notch and asking her out to dinner.</div>
-              </div>
+              <div class="dc-ai-text">Given you had lunch with Emily first date, I suggest kicking up a notch and asking her out to dinner.</div>
             </div>
-            <!-- 3. Action: Pulling in memories -->
-            <div class="chat-phone-block chat-ai-row">
+            <div class="chat-phone-block dc-action-row">
               <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-action-bubble">
-                <div class="chat-action-head">
-                  <div class="chat-action-icon"><img src="assets/brain-icon.svg" alt=""></div>
-                  <span class="chat-action-title">Pulling in your memories...</span>
-                  <div class="chat-action-chevron"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7.5L6 4.5L3 7.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/brain-icon.svg" alt=""></div>
+                  <span class="dc-action-title">Pulling in your memories...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
                 </div>
-                <div class="chat-action-detail">I recall Emily recently started a vegan diet.</div>
-              </div>
-            </div>
-            <!-- 4. Action: Searching restaurants -->
-            <div class="chat-phone-block chat-ai-row">
-              <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-action-bubble">
-                <div class="chat-action-head">
-                  <div class="chat-action-icon"><img src="assets/search-icon.svg" alt=""></div>
-                  <span class="chat-action-title">Searching nearby restaurants</span>
-                  <div class="chat-action-chevron"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7.5L6 4.5L3 7.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">I recall Emily recently started a vegan diet.</div>
                 </div>
-                <div class="chat-action-detail">7:30 spot is available which looks perfect after your 7pm meeting.</div>
               </div>
             </div>
-            <!-- 5. AI "Done!" response with tail -->
-            <div class="chat-phone-block chat-ai-row chat-ai-row--text">
+            <div class="chat-phone-block dc-action-row">
               <div class="chat-avatar" aria-hidden="true"></div>
-              <div class="chat-bubble-tailed chat-bubble-tailed--ai">
-                <div class="chat-bubble-tailed-text">💯 Done! I just sent her a message.</div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/search-icon.svg" alt=""></div>
+                  <span class="dc-action-title">Searching nearby restaurants</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">7:30 spot is available which looks perfect after your 7pm meeting.</div>
+                </div>
               </div>
             </div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">💯 Done! I just sent her a message.</div>
+            </div>
+            <div class="chat-phone-block"><img src="assets/yumi-sticker.png" alt="" class="dc-success"></div>
           </div>
-          <div class="chat-phone-panel" data-index="1">
+          <div class="chat-phone-panel duo-chat" data-index="1">
             <div class="chat-phone-header">
               <img src="assets/sarah's duo.png" alt="" class="chat-phone-header-avatar">
               <span class="chat-phone-header-name">Sarah</span>
             </div>
-            <img src="assets/sarah-chat-1.png" alt="Sarah's Duo chat 1" class="chat-phone-svg">
-            <img src="assets/sarah-chat-2.png" alt="Sarah's Duo chat 2" class="chat-phone-svg">
-            <img src="assets/sarah-chat-3.png" alt="Sarah's Duo chat 3" class="chat-phone-svg">
-            <img src="assets/sarah-chat-4.png" alt="Sarah's Duo chat 4" class="chat-phone-svg">
-            <img src="assets/sarah-chat-5.png" alt="Sarah's Duo chat 5" class="chat-phone-svg">
-            <img src="assets/sarah-success-message.png" alt="Success" class="chat-phone-svg">
+            <div class="chat-phone-block dc-user">Ugh, Mike is asking to hang out again. I really don't want to go. Help me bail?</div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">Omg again? 😒 He does not take a hint. Say less, bestie. I'm already on it.</div>
+            </div>
+            <div class="chat-phone-block dc-action-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/brain-icon-pink.svg" alt=""></div>
+                  <span class="dc-action-title">Pulling in your memories...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">Searching to find a perfect excuse.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-phone-block dc-action-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/writing-up-excuses.svg" alt="" style="width:10px;height:10px"></div>
+                  <span class="dc-action-title">Writing up your excuse text...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">You mentioned you had a migraine last week to Jessica, we can use that as a valid reason.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">Done! I've just sent the message to Mike for you, hopefully he gets the message...</div>
+            </div>
+            <div class="chat-phone-block"><img src="assets/sarah-sticker.png" alt="" class="dc-success"></div>
           </div>
-          <div class="chat-phone-panel" data-index="2">
+          <div class="chat-phone-panel duo-chat" data-index="2">
             <div class="chat-phone-header">
               <img src="assets/david's duo.png" alt="" class="chat-phone-header-avatar">
               <span class="chat-phone-header-name">David</span>
             </div>
-            <img src="assets/david-chat-1.png" alt="David's Duo chat 1" class="chat-phone-svg">
-            <img src="assets/david-chat-2.png" alt="David's Duo chat 2" class="chat-phone-svg">
-            <img src="assets/david-chat-3.png" alt="David's Duo chat 3" class="chat-phone-svg">
-            <img src="assets/david-chat-4.png" alt="David's Duo chat 4" class="chat-phone-svg">
-            <img src="assets/david-chat-5.png" alt="David's Duo chat 5" class="chat-phone-svg">
-            <img src="assets/David-chat-6.png" alt="Success" class="chat-phone-svg">
+            <div class="chat-phone-block dc-user">I need a briefing for the Q3 strategy meeting in 30 minutes. What are the key numbers?</div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">I have prepared your dossier. I noticed revenue is up, but user retention dropped slightly last month. They will ask about that.</div>
+            </div>
+            <div class="chat-phone-block dc-action-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/brain-icon-purple.svg" alt=""></div>
+                  <span class="dc-action-title">Pulling in your memories...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">I recall your accountant sharing the Q3 financial spreadsheets with Jack last week.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">I've summarized the data into a one-pager and placed it on your desktop. I also drafted a response regarding the retention dip just in case.</div>
+            </div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">I think the team will be very pleased with what you have here.</div>
+            </div>
+            <div class="chat-phone-block"><img src="assets/david-sticker.png" alt="" class="dc-success"></div>
           </div>
-          <div class="chat-phone-panel active" data-index="3">
+          <div class="chat-phone-panel duo-chat active" data-index="3">
             <div class="chat-phone-header">
               <img src="assets/amy's duo.png" alt="" class="chat-phone-header-avatar">
               <span class="chat-phone-header-name">Amy</span>
             </div>
-            <img src="assets/amy-chat-1.png" alt="Amy's Duo chat 1" class="chat-phone-svg">
-            <img src="assets/amy-chat-2.png" alt="Amy's Duo chat 2" class="chat-phone-svg">
-            <img src="assets/amy-chat-3.png" alt="Amy's Duo chat 3" class="chat-phone-svg">
-            <img src="assets/amy-chat-4.png" alt="Amy's Duo chat 4" class="chat-phone-svg">
-            <img src="assets/amy-chat-5.png" alt="Amy's Duo chat 5" class="chat-phone-svg">
-            <img src="assets/amy-chat-6.png" alt="Success" class="chat-phone-svg">
+            <div class="chat-phone-block dc-user">I'm so tired of studying... I think I'm going to fail this exam. I want to go get a Iced Americano.</div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">Ohhh Don't say that! 🥺 You have worked so hard! You are a star! ✨ Let's take a deep breath together, okay?</div>
+            </div>
+            <div class="chat-phone-block dc-action-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/brain-icon-orange.svg" alt=""></div>
+                  <span class="dc-action-title">Pulling in your memories...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">I recall you mentioning your favorite drink is Iced Americano.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-phone-block dc-action-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-action">
+                <div class="dc-action-head">
+                  <div class="dc-action-icon"><img src="assets/search-icon-orange.svg" alt="" style="width:11px;height:11px"></div>
+                  <span class="dc-action-title">Searching for coffee shops...</span>
+                  <div class="dc-action-chevron"><img src="assets/chevron-up.svg" alt=""></div>
+                </div>
+                <div class="dc-action-detail">
+                  <div class="dc-action-detail-line"></div>
+                  <div class="dc-action-detail-text">Found your favorite coffee shop in town!</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-phone-block dc-ai-row">
+              <div class="chat-avatar" aria-hidden="true"></div>
+              <div class="dc-ai-text">I ordered your Iced Americano for pickup. ☕ Let's go there and crush this studying! 💪</div>
+            </div>
+            <div class="chat-phone-block"><img src="assets/amy-sticker.png" alt="" class="dc-success"></div>
           </div>
         </div>
       </div>
@@ -603,21 +746,21 @@ img { display: block; max-width: 100%; }
   <!-- Duo bar sits in hero bottom area -->
   <div class="duo-bar reveal" id="duo-bar" style="position:relative;z-index:3;padding-bottom:88px;">
     <div class="duo-bar-inner">
-      <div class="duo-item-wrapper" data-index="0">
-        <div class="duo-item"><div class="duo-ava"><img src="https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce" alt="Yumi"></div><div><div class="duo-name">Yumi's Duo</div><div class="duo-sub">Cute coding companion</div></div></div>
-        <div class="duo-item-stroke" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="duo-item-wrapper active" data-index="0">
+        <div class="duo-item active"><div class="duo-ava"><img src="https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce" alt="Yumi"></div><div><div class="duo-name">Yumi</div><div class="duo-sub">Cute coding companion</div></div></div>
+        <div class="duo-item-stroke duo-stroke-running" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
       </div>
       <div class="duo-item-wrapper" data-index="1">
-        <div class="duo-item"><div class="duo-ava"><img src="assets/sarah's duo.png" alt="Sarah"></div><div><div class="duo-name">Sarah's Duo</div><div class="duo-sub">Mischievous best friend</div></div></div>
+        <div class="duo-item"><div class="duo-ava"><img src="assets/sarah's duo.png" alt="Sarah"></div><div><div class="duo-name">Sarah</div><div class="duo-sub">Mischievous best friend</div></div></div>
         <div class="duo-item-stroke" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
       </div>
       <div class="duo-item-wrapper" data-index="2">
-        <div class="duo-item"><div class="duo-ava"><img src="assets/david's duo.png" alt="David"></div><div><div class="duo-name">David's Duo</div><div class="duo-sub">Reliable Chief of Staff</div></div></div>
+        <div class="duo-item"><div class="duo-ava"><img src="assets/david's duo.png" alt="David"></div><div><div class="duo-name">David</div><div class="duo-sub">Reliable Chief of Staff</div></div></div>
         <div class="duo-item-stroke" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
       </div>
-      <div class="duo-item-wrapper active" data-index="3">
-        <div class="duo-item active"><div class="duo-ava"><img src="assets/amy's duo.png" alt="Amy"></div><div><div class="duo-name">Amy's Duo</div><div class="duo-sub">Cheerful Kpop idol oppa</div></div></div>
-        <div class="duo-item-stroke duo-stroke-running" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="duo-item-wrapper" data-index="3">
+        <div class="duo-item"><div class="duo-ava"><img src="assets/amy's duo.png" alt="Amy"></div><div><div class="duo-name">Amy</div><div class="duo-sub">Cheerful Kpop idol oppa</div></div></div>
+        <div class="duo-item-stroke" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
       </div>
     </div>
   </div>
@@ -641,12 +784,12 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Books restaurants, flights</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/amy's duo.png" alt=""></div><div><span class="carousel-badge-name">Amy</span><br><span class="carousel-badge-sub">Cheerful Kpop idol oppa</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/John-Dan.png" alt="John and Dan visiting, book dinner?" class="carousel-chat-svg">
-        <img src="assets/That-would-be-great.png" alt="That would be great!" class="carousel-chat-svg">
-        <img src="assets/Reservation-booked.png" alt="Reservation booked" class="carousel-chat-svg">
+        <div class="chat-bubble chat-duo">I see that John and Dan are visiting tonight. Shall I book dinner someplace nice, within your usual budget range?</div>
+        <div class="chat-bubble chat-user">That would be great!</div>
+        <div class="chat-bubble chat-duo">Reservation booked:<br><br>3 people<br>7:30pm<br>La Trattoria<br><br>Let me know if you'd like me to change it</div>
       </div>
     </div></li>
 
@@ -656,12 +799,12 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Manages your inbox</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce" alt=""></div><div><span class="carousel-badge-name">Yumi</span><br><span class="carousel-badge-sub">Cute coding companion</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/good-morning-jack.png" alt="Good morning Jack inbox summary" class="carousel-chat-svg">
-        <img src="assets/anything-from-julie.png" alt="Anything from Julie's school?" class="carousel-chat-svg">
-        <img src="assets/not-yet.png" alt="Not yet but I'll ping you ASAP" class="carousel-chat-svg">
+        <div class="chat-bubble chat-duo">Good morning Jack! Here's your daily inbox summary:<br><br>✓ 5 spam emails cleared<br>✓ 5 client emails replied to<br>✓ 1 investor report sent out</div>
+        <div class="chat-bubble chat-user">Anything from Julie's school?</div>
+        <div class="chat-bubble chat-duo">Not yet but I'll ping you ASAP when I see it!</div>
       </div>
     </div></li>
 
@@ -671,13 +814,19 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Goes shopping for you</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/mad-hangover.png" alt="Mad hangover message" class="carousel-chat-svg">
-        <img src="assets/bro-your-32.png" alt="Bro you're 32 response" class="carousel-chat-svg">
-        <img src="assets/searching-best-prices.png" alt="Searching for best prices" class="carousel-chat-svg">
-        <img src="assets/ordered-screenshot.png" alt="Ordered confirmation" class="carousel-chat-svg">
+        <div class="chat-bubble chat-user">I have a mad hangover, can you order some advil and gatorade on DoorDash</div>
+        <div class="chat-bubble chat-duo">bro you're 32, not 19. this isn't a hangover cure, it's a midlife crisis speedrun lol</div>
+        <div class="chat-action">
+          <div class="chat-action-bar"><div class="chat-action-icon"><img src="assets/brain-icon-white.svg" alt="" style="width:10px;height:10px"></div><span style="flex:1">Pulling in your memories...</span><div style="width:12px;height:12px;flex-shrink:0"><img src="assets/chevron-up.svg" alt="" style="width:100%;height:100%"></div></div>
+          <div class="chat-action-body" style="display:flex;gap:12px;align-items:stretch"><div style="width:1px;background:rgba(0,0,0,0.12);flex-shrink:0"></div><div>I found a cheaper store for your broke ass. Ordering now.</div></div>
+        </div>
+        <div class="chat-action">
+          <div class="chat-action-bar"><div class="chat-action-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M10 3L4.5 8.5L2 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="flex:1">Ordering on DoorDash...</span><div style="width:12px;height:12px;flex-shrink:0"><img src="assets/chevron-up.svg" alt="" style="width:100%;height:100%"></div></div>
+          <div class="chat-action-body" style="display:flex;gap:12px;align-items:stretch"><div style="width:1px;background:rgba(0,0,0,0.12);flex-shrink:0"></div><div>Ordered. ETA 19-28 mins. I tipped the driver 10% as usual.</div></div>
+        </div>
       </div>
     </div></li>
 
@@ -687,12 +836,12 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Trade stocks</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/david's duo.png" alt=""></div><div><span class="carousel-badge-name">David</span><br><span class="carousel-badge-sub">Reliable Chief of Staff</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/trade-stocks-1.png" alt="Trade stocks chat 1" class="carousel-chat-svg">
-        <img src="assets/trade-stocks-2.png" alt="Trade stocks chat 2" class="carousel-chat-svg">
-        <img src="assets/trade-stocks-3.png" alt="Trade stocks chat 3" class="carousel-chat-svg">
+        <div class="chat-bubble chat-duo">Some big movement today after the Fed announcement. Given your preferred risk profile, let me adjust your holdings for less exposure.</div>
+        <div class="chat-bubble chat-user">Yes, the market is tanking...</div>
+        <div class="chat-bubble chat-duo">I've reduced your tech sector weight by 15% and increased your bond allocation. Your projected volatility is now back within your target range. Anything else you need?</div>
       </div>
     </div></li>
 
@@ -702,14 +851,17 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Builds full websites, apps</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="https://www.figma.com/api/mcp/asset/50217d0a-e528-4ce0-844d-0e897dca98ce" alt=""></div><div><span class="carousel-badge-name">Yumi</span><br><span class="carousel-badge-sub">Cute coding companion</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/builds-full-websites-1.png" alt="Builds full websites chat 1" class="carousel-chat-svg">
-        <img src="assets/builds-full-websites-2.png" alt="Builds full websites chat 2" class="carousel-chat-svg">
-        <img src="assets/builds-full-websites-3.png" alt="Builds full websites chat 3" class="carousel-chat-svg">
-        <img src="assets/builds-full-websites-4.png" alt="Builds full websites chat 4" class="carousel-chat-svg">
-        <img src="assets/builds-full-websites-5.png" alt="Builds full websites chat 5" class="carousel-chat-svg">
+        <div class="chat-bubble chat-user">I'm in Japan and my calorie counter app doesn't work here, are there alternatives?</div>
+        <div class="chat-bubble chat-duo">Let's avoid another subscription. I can build you a simple calorie counter app that works with Japanese barcodes/SKUs. Want it as an app or web app?</div>
+        <div class="chat-bubble chat-user">Oh nice, yes web app is fine</div>
+        <div class="chat-bubble chat-duo">On it! I'll build a simple app using React and Supabase for auth/db. I'll be like 10 minutes.</div>
+        <div class="chat-action">
+          <div class="chat-action-bar"><div class="chat-action-icon"><img src="assets/brain-icon-white.svg" alt="" style="width:10px;height:10px"></div><span style="flex:1">Setting up local environment...</span><div style="width:12px;height:12px;flex-shrink:0"><img src="assets/chevron-up.svg" alt="" style="width:100%;height:100%"></div></div>
+          <div class="chat-action-body" style="display:flex;gap:12px;align-items:stretch"><div style="width:1px;background:rgba(0,0,0,0.12);flex-shrink:0"></div><div>Initializing project and creating project files.</div></div>
+        </div>
       </div>
     </div></li>
 
@@ -719,28 +871,32 @@ img { display: block; max-width: 100%; }
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
         <div class="carousel-card-title">Set up dates</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/set-up-dates-1.png" alt="Set up dates chat 1" class="carousel-chat-svg">
-        <img src="assets/set-up-dates-2.png" alt="Set up dates chat 2" class="carousel-chat-svg">
-        <img src="assets/set-up-dates-3.png" alt="Set up dates chat 3" class="carousel-chat-svg">
-        <img src="assets/set-up-dates-4.png" alt="Set up dates chat 4" class="carousel-chat-svg">
+        <div class="chat-bubble chat-user">schedule date night with Emily this weekend</div>
+        <div class="chat-bubble chat-duo">Given you had lunch on your first date, I suggest kicking it up a notch and asking her out to dinner.</div>
+        <div class="chat-action">
+          <div class="chat-action-bar"><div class="chat-action-icon"><img src="assets/search-icon-white.svg" alt="" style="width:10px;height:10px"></div><span style="flex:1">Searching nearby restaurants...</span><div style="width:12px;height:12px;flex-shrink:0"><img src="assets/chevron-up.svg" alt="" style="width:100%;height:100%"></div></div>
+          <div class="chat-action-body" style="display:flex;gap:12px;align-items:stretch"><div style="width:1px;background:rgba(0,0,0,0.12);flex-shrink:0"></div><div>Found a vegan spot with a 7:30 opening — perfect after your 7pm meeting.</div></div>
+        </div>
+        <div class="chat-bubble chat-duo">💯 Done! I just sent her a message and booked the table.</div>
       </div>
     </div></li>
 
-    <!-- Card 7: Talk to you with its own voice -->
+    <!-- Card 7: Talks to you in its own voice -->
     <li class="splide__slide"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/Talk to you with its own voice.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
-        <div class="carousel-card-title">Talk to you with its own voice</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/sarah's duo.png" alt=""></div><div><span class="carousel-badge-name">Sarah's Duo</span><br><span class="carousel-badge-sub">Mischievous best friend</span></div></div>
+        <div class="carousel-card-title">Talks to you in its own voice</div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/amy's duo.png" alt=""></div><div><span class="carousel-badge-name">Amy</span><br><span class="carousel-badge-sub">Cheerful Kpop idol oppa</span></div></div>
       </div>
       <div class="carousel-card-chat">
-        <img src="assets/talk-using-voice.png" alt="Talk using voice" class="carousel-chat-svg">
-        <img src="assets/cool-to-hear.png" alt="Cool to hear" class="carousel-chat-svg">
-        <img src="assets/ok-sweet.png" alt="Ok sweet" class="carousel-chat-svg">
+        <div class="chat-bubble chat-duo">Hey! How was your day? I heard you had that big presentation today 🎤</div>
+        <div class="chat-bubble chat-user">It went really well actually! The client loved it</div>
+        <div class="chat-bubble chat-duo">That's amazing, I knew you'd crush it! 🎉 Want me to schedule a celebration dinner this weekend?</div>
+        <div class="chat-bubble chat-user">Ok sweet, yes please!</div>
       </div>
     </div></li>
 
@@ -761,7 +917,7 @@ img { display: block; max-width: 100%; }
   <div class="fcard reveal rd1"><div class="fcard-top"><h3>Uses Human Tools</h3><p>Your Duo uses the same tools you do to get things done: Websites, Apps, Desktop Programs, Credit Cards</p></div><div class="fcard-vis"><img src="assets/human-tools.svg" alt="App icons grid"></div></div>
   <div class="fcard reveal rd2"><div class="fcard-top"><h3>Proactive, Not Reactive</h3><p>Your Duo doesn't wait for explicit instructions on every task. It'll always think about how it can help and take action.</p></div><div class="fcard-vis" style="align-items:center;"><img src="assets/proactive-not-reactive.svg" alt="Proactive AI illustration" style="width:80%;"></div></div>
   <div class="fcard reveal"><div class="fcard-top"><h3>Understands You Deeply</h3><p>The more you share with your Duo, the more it understands you and the more it becomes useful. Always be in control of what you share with your Duo.</p></div><div class="fcard-vis"><img src="assets/understands-you-deeply.png" alt="Understands you illustration" style="width:75%;"></div></div>
-  <div class="fcard reveal rd1"><div class="fcard-top"><h3>Security-First</h3><p>Your Duo operates within a secure, encrypted Pod and keeps track of everything that goes in or out. We never retain your data or use it for training.</p></div><div class="fcard-vis"><img src="assets/security-first.png" alt="Security illustration" style="width:65%;"></div></div>
+  <div class="fcard reveal rd1"><div class="fcard-top"><h3>Security-First</h3><p>Your Duo operates within a secure, encrypted Pod and keeps track of everything that goes in or out. We never retain your data or use it for training.</p></div><div class="fcard-vis"><img src="assets/security-first.png" alt="Security illustration" style="width:65%;margin-top:-20px;"></div></div>
   <div class="fcard reveal rd2"><div class="fcard-top"><h3>Persistent Memory</h3><p>Your Duo has much better memory than other AI chatbots. It recalls relevant information on the fly to provide better results.</p></div><div class="fcard-vis"><img src="assets/persistent-memory.svg" alt="Memory illustration"></div></div>
   <div class="fcard reveal"><div class="fcard-top"><h3>Always On, 24/7</h3><p>Your Duo doesn't sit idle. It can work in the background, organizing your schedule, monitoring your tasks, and ensuring you're always one step ahead.</p></div><div class="fcard-vis" style="align-items:flex-end;"><img src="assets/always-on-24-7.svg" alt="Always on illustration" style="width:65%;margin-bottom:-10px;"></div></div>
   <div class="fcard fcard-cta reveal rd1"><div class="fcard-top"><h3>Free to Try</h3><p>Create your own Duo today for free and see the difference for yourself.</p></div><div class="fcard-vis" style="padding:0;align-items:flex-end;"><img src="assets/free-to-try.png" alt="Free to try illustration" style="width:100%;height:auto;object-fit:unset;flex-shrink:0;"></div></div>
@@ -771,33 +927,35 @@ img { display: block; max-width: 100%; }
 <!-- COMPARISON -->
 <section class="comparison" id="compare">
   <div class="comp-inner">
-    <div class="comp-head reveal"><h2>How Duo <span class="si">Compares</span></h2><p>Here's how Duo compares to Openclaw and ChatGPT</p></div>
-    <div class="comp-cta reveal"><a href="#cta" class="btn-dark">Create Your Duo For Free <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a></div>
+    <div class="comp-head reveal"><h2>How Duo <span class="si">Compares.</span></h2><p>Here's how Duo compares to OpenClaw and ChatGPT</p></div>
     <div class="reveal">
       <div class="comp-logos">
-        <span style="display:flex;align-items:center;gap:4px"><svg width="18" height="12" viewBox="0 0 34 20" fill="none"><path d="M10.5 0C4.7 0 0 4.48 0 10c0 5.52 4.7 10 10.5 10 3.23 0 6.1-1.46 8-3.75C20.4 18.54 23.27 20 26.5 20c4.14 0 7.5-4.48 7.5-10S30.64 0 26.5 0c-3.23 0-6.1 1.46-8 3.75C16.6 1.46 13.73 0 10.5 0z" fill="#000"/></svg> Duo</span>
-        <span style="color:#E8442A;font-size:12px">OPENCLAW</span>
-        <span style="font-size:13px">ChatGPT</span>
+        <div class="comp-logos-inner">
+          <img src="assets/duo-logo.svg" alt="Duo">
+          <img src="assets/openclaw-logo.svg" alt="OpenClaw">
+          <img src="assets/chat-gpt-logo.svg" alt="ChatGPT">
+        </div>
       </div>
       <div class="comp-table">
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><path d="M3 10l2-7h10l2 7v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6z" stroke="#1397F6" stroke-width="1.5"/></svg><div class="comp-row-text">Instant cloud setup, no hardware necessary</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><path d="M12 8v4m0 4h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#1397F6" stroke-width="1.5"/><path d="M6 12h4" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round"/></svg><div class="comp-row-text">No mandatory monthly subscription cost</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v6c0 4 3.5 6.5 7 8 3.5-1.5 7-4 7-8V6l-7-4z" stroke="#1397F6" stroke-width="1.5"/></svg><div class="comp-row-text">Blocks data training on your chats</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#1397F6" stroke-width="1.5"/></svg><div class="comp-row-text">Access to sandboxed computer to create/use tools safely</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v6c0 4 3.5 6.5 7 8 3.5-1.5 7-4 7-8V6l-7-4z" stroke="#1397F6" stroke-width="1.5"/><path d="M8 10l2 2 3-3" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="comp-row-text">Personal data encrypted at rest</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="10" r="3" stroke="#1397F6" stroke-width="1.5"/><circle cx="13" cy="10" r="3" stroke="#1397F6" stroke-width="1.5"/></svg><div class="comp-row-text">Persistent, passive, optimized memory</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><path d="M12 8v4m0 4h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#1397F6" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round"/></svg><div class="comp-row-text">"Always-On" proactive autonomy</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#1397F6" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="comp-row-text">Optimized model routing, reduced token costs</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><path d="M12 8v4m0 4h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="2" stroke="#1397F6" stroke-width="1.5"/><path d="M8 8h4m-4 3h4" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round"/></svg><div class="comp-row-text">Built-in dashboard, security audit trail</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-        <div class="comp-row"><div class="comp-hl" style="border-radius:0 0 12px 12px"></div><svg class="comp-row-icon" viewBox="0 0 20 20" fill="none"><path d="M10 3L7 10h6l-3 7" stroke="#1397F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="comp-row-text">Immune to platform "surge" throttling</div><div class="comp-scores"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><path d="M12 8v4m0 4h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+        <div class="comp-table-hl"></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M13 19c0 .34.04.67.09 1H6.5c-1.5 0-2.81-.5-3.89-1.57C1.54 17.38 1 16.09 1 14.58q0-1.95 1.17-3.48C3.34 9.57 4 9.43 5.25 9.15c.42-1.53 1.25-2.77 2.5-3.72S10.42 4 12 4c1.95 0 3.6.68 4.96 2.04S19 9.05 19 11c1.15.13 2.1.63 2.86 1.5c.51.57.84 1.21 1 1.92A5.9 5.9 0 0 0 19 13c-3.31 0-6 2.69-6 6m4.75.43l-1.59-1.59L15 19l2.75 3l4.75-4.75l-1.16-1.41z"/></svg><div class="comp-row-text">Instant cloud setup, no hardware necessary</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v5.325q-.45-.325-.95-.575T20 10.325V8H4v4h9q-.975.95-1.537 2.238T10.9 17q0 .8.175 1.563t.5 1.437zm13.9.5L14.4 17q-.325-.325-.462-.7t-.138-.75q0-.8.575-1.425t1.475-.625q.7 0 1.1.325t.95.875q.5-.5.913-.85t1.137-.35q.925 0 1.488.638T22 15.574q0 .375-.15.75T21.4 17z"/></svg><div class="comp-row-text">Free to use</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/check-icon-grey.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M12 21q-1.025 0-2.562-.213T6.475 20.1t-2.45-1.237T3 17v-2.5q0 1.1 1.025 1.863t2.45 1.237t2.963.688T12 18.5q1.05 0 2.588-.213t2.987-.712l1.75 1.75q-1.55.9-3.75 1.288T12 21m8.775-3.05l-1.25-1.25q.675-.425 1.075-.975T21 14.5V17q0 .275-.05.5t-.175.45M12 16q-1.025 0-2.563-.213T6.475 15.1t-2.45-1.237T3 12V9.5q0 1.1 1.025 1.863t2.45 1.237t2.963.688T12 13.5q.3 0 .663-.012t.762-.063L15.6 15.6q-1.025.2-1.962.3T12 16m5.825-1l-1.95-1.95q1.925-.425 3.525-1.275T21 9.5V12q0 1.05-.913 1.788T17.825 15m-6.85-4.025q-3.4-.175-5.687-1.3T3 7q0-.65.438-1.237t1.237-1.088zm2.775-.05L6.625 3.8q1.125-.375 2.488-.587T12 3q3.75 0 6.375 1.175T21 7q0 1.45-2.062 2.55t-5.188 1.375M19.075 21.9L2.1 4.925q-.275-.275-.275-.687t.275-.713q.3-.3.713-.3t.712.3L20.5 20.5q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288"/></svg><div class="comp-row-text">Zero Data Retention or Training</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M4 18q-.825 0-1.412-.587T2 16V5q0-.825.588-1.412T4 3h16.175L15 8.175V12.8l5.175 5.2zm-3 3v-2h22v2zm19.775-5.2l-1.4-1.4q.8-.8 1.213-1.8T21 10.5t-.412-2.1t-1.213-1.8l1.4-1.4q1.075 1.05 1.65 2.425T23 10.5t-.575 2.875t-1.65 2.425m-2.45-2.45l-1.45-1.45q.3-.275.463-.637t.162-.763t-.162-.763t-.463-.637l1.45-1.45q.575.575.875 1.312t.3 1.538t-.3 1.537t-.875 1.313"/></svg><div class="comp-row-text">Sandbox computer to create/use its own tools</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/none-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path d="M10 18.2501C9.90282 18.2501 9.81254 18.2431 9.72921 18.2292C9.64587 18.2154 9.56254 18.1945 9.47921 18.1667C7.57643 17.5417 6.07643 16.4029 4.97921 14.7501C3.88199 13.0973 3.33337 11.264 3.33337 9.25008V5.31258C3.33337 4.96536 3.43421 4.65286 3.63587 4.37508C3.83754 4.0973 4.09782 3.89591 4.41671 3.77091L9.41671 1.89591C9.61115 1.82647 9.8056 1.79175 10 1.79175C10.1945 1.79175 10.3889 1.82647 10.5834 1.89591L15.5834 3.77091C15.9028 3.89591 16.1634 4.0973 16.365 4.37508C16.5667 4.65286 16.6673 4.96536 16.6667 5.31258V9.14592C16.6667 9.39592 16.5731 9.60786 16.3859 9.78175C16.1987 9.95564 15.9798 10.0354 15.7292 10.0209C15.2014 10.0348 14.6981 10.139 14.2192 10.3334C13.7403 10.5279 13.2992 10.8265 12.8959 11.2292C12.5209 11.6042 12.2223 12.0417 12 12.5417C11.7778 13.0417 11.6667 13.5834 11.6667 14.1667V17.1459C11.6667 17.4237 11.5453 17.639 11.3025 17.7917C11.0598 17.9445 10.7992 18.0695 10.5209 18.1667C10.4375 18.1945 10.3542 18.2154 10.2709 18.2292C10.1875 18.2431 10.0973 18.2501 10 18.2501ZM14.0417 18.3334C13.8473 18.3334 13.6806 18.264 13.5417 18.1251C13.4028 17.9862 13.3334 17.8195 13.3334 17.6251V14.8751C13.3334 14.6806 13.4028 14.514 13.5417 14.3751C13.6806 14.2362 13.8473 14.1667 14.0417 14.1667H14.1667V13.3334C14.1667 12.8751 14.33 12.4829 14.6567 12.1567C14.9834 11.8306 15.3756 11.6673 15.8334 11.6667C16.2912 11.6662 16.6837 11.8295 17.0109 12.1567C17.3381 12.484 17.5012 12.8762 17.5 13.3334V14.1667H17.625C17.8195 14.1667 17.9862 14.2362 18.125 14.3751C18.2639 14.514 18.3334 14.6806 18.3334 14.8751V17.6251C18.3334 17.8195 18.2639 17.9862 18.125 18.1251C17.9862 18.264 17.8195 18.3334 17.625 18.3334H14.0417ZM15 14.1667H16.6667V13.3334C16.6667 13.0973 16.5867 12.8995 16.4267 12.7401C16.2667 12.5806 16.0689 12.5006 15.8334 12.5001C15.5978 12.4995 15.4 12.5795 15.24 12.7401C15.08 12.9006 15 13.0984 15 13.3334V14.1667Z" fill="#111"/></svg><div class="comp-row-text">Personal data encrypted at rest</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/none-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66L10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99c-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2A5.37 5.37 0 0 0 5.4 6.62C2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5l.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99c1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01l-1.51 1.34l1.27 1.12a5.386 5.386 0 0 0 3.82 1.57c2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37"/></svg><div class="comp-row-text">Persistent, passive, optimized memory</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><img class="comp-row-icon" src="assets/always-on-icon.svg" alt=""><div class="comp-row-text">"Always-On" proactive autonomy</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/check-icon-grey.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path d="M16.25 3.98591V6.39258L18.3333 7.59508V12.4059L16.2491 13.6092L16.25 16.0151L12.0833 18.4209L9.99996 17.2167L7.91663 18.4201L3.74996 16.0142V13.6084L1.66663 12.4067L1.66746 7.59424L3.74996 6.39175V3.98674L7.91663 1.58091L9.99913 2.78424L12.0841 1.58008L16.25 3.98591ZM12.2791 10.9667C12.2635 10.9276 12.2365 10.894 12.2016 10.8703C12.1667 10.8467 12.1255 10.834 12.0833 10.834C12.0411 10.834 11.9999 10.8467 11.965 10.8703C11.9301 10.894 11.9031 10.9276 11.8875 10.9667L11.7816 11.2209C11.605 11.6523 11.2694 11.9993 10.8441 12.1901L10.545 12.3234C10.5069 12.3412 10.4748 12.3695 10.4523 12.4049C10.4297 12.4403 10.4178 12.4814 10.4178 12.5234C10.4178 12.5654 10.4297 12.6065 10.4523 12.6419C10.4748 12.6773 10.5069 12.7056 10.545 12.7234L10.8616 12.8651C11.2733 13.0484 11.6033 13.3817 11.7866 13.8017L11.8891 14.0376C11.9641 14.2101 12.2025 14.2101 12.2775 14.0376L12.38 13.8026C12.5602 13.3854 12.8902 13.0509 13.305 12.8651L13.6216 12.7234C13.6596 12.7056 13.6918 12.6773 13.7143 12.6419C13.7369 12.6065 13.7488 12.5654 13.7488 12.5234C13.7488 12.4814 13.7369 12.4403 13.7143 12.4049C13.6918 12.3695 13.6596 12.3412 13.6216 12.3234L13.3225 12.1901C12.8969 11.9994 12.5609 11.6524 12.3841 11.2209L12.2791 10.9667ZM8.67663 6.48341C8.6491 6.41488 8.60169 6.35615 8.5405 6.3148C8.47931 6.27344 8.40715 6.25133 8.33329 6.25133C8.25944 6.25133 8.18727 6.27344 8.12609 6.3148C8.0649 6.35615 8.01749 6.41488 7.98996 6.48341L7.80496 6.92841C7.49581 7.68365 6.90843 8.29131 6.16413 8.62591L5.64163 8.85841C5.57447 8.88932 5.51758 8.93884 5.4777 9.00109C5.43782 9.06335 5.41662 9.13573 5.41662 9.20966C5.41662 9.28359 5.43782 9.35598 5.4777 9.41823C5.51758 9.48048 5.57447 9.53 5.64163 9.56091L6.19579 9.80674C6.92107 10.1327 7.49809 10.7184 7.81329 11.4484L7.99329 11.8601C8.02126 11.9272 8.06847 11.9845 8.12898 12.0249C8.18948 12.0652 8.26057 12.0867 8.33329 12.0867C8.40601 12.0867 8.4771 12.0652 8.53761 12.0249C8.59811 11.9845 8.64532 11.9272 8.67329 11.8601L8.85329 11.4476C9.1685 10.7175 9.74551 10.1319 10.4708 9.80591L11.025 9.56091C11.0921 9.53 11.149 9.48048 11.1889 9.41823C11.2288 9.35598 11.25 9.28359 11.25 9.20966C11.25 9.13573 11.2288 9.06335 11.1889 9.00109C11.149 8.93884 11.0921 8.88932 11.025 8.85841L10.5016 8.62508C9.75716 8.29085 9.16948 7.68348 8.85996 6.92841L8.67663 6.48341Z" fill="#111"/></svg><div class="comp-row-text">Optimized model routing, reduced token costs</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/check-icon-grey.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M11 10q.825 0 1.413-.587T13 8t-.587-1.412T11 6t-1.412.588T9 8t.588 1.413T11 10m0 4q1.125 0 2.113-.475t1.712-1.35q-.875-.575-1.837-.875T11 11t-1.987.3t-1.838.875q.725.875 1.712 1.35T11 14m0 4q-3.35 0-5.675-2.325T3 10t2.325-5.675T11 2t5.675 2.325T19 10q0 1.4-.45 2.638T17.3 14.9l4 4q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-4-4q-1.025.8-2.262 1.25T11 18"/></svg><div class="comp-row-text">Built-in personal data audit trail</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/none-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
+        <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="m10.95 18l5.65-5.65l-1.45-1.45l-4.225 4.225l-2.1-2.1L7.4 14.45zM6 22q-.825 0-1.412-.587T4 20V4q0-.825.588-1.412T6 2h8l6 6v12q0 .825-.587 1.413T18 22zm7-13h5l-5-5z"/></svg><div class="comp-row-text">Built-in dashboard, multi-agent task tracker</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
       </div>
       <div class="comp-legend">
         <div class="comp-legend-l">Comparisons were made with default settings.<br>Information is correct as of February 2026.</div>
         <div class="comp-legend-r">
-          <div class="comp-legend-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#1397F6"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Included</div>
-          <div class="comp-legend-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><path d="M12 8v4m0 4h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Limited</div>
-          <div class="comp-legend-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5A623"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">$</text></svg>Paid</div>
-          <div class="comp-legend-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF4444"/><path d="M9 9l6 6m0-6l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>None</div>
+          <div class="comp-legend-item"><img src="assets/check-icon.svg" alt="">Included</div>
+          <div class="comp-legend-item"><img src="assets/limited-icon.svg" alt="">Limited</div>
+          <div class="comp-legend-item"><img src="assets/paid-iocon.svg" alt="">Paid</div>
+          <div class="comp-legend-item"><img src="assets/none-icon.svg" alt="">None</div>
         </div>
       </div>
     </div>
@@ -809,38 +967,69 @@ img { display: block; max-width: 100%; }
   <div class="test-head reveal"><h2>People <span class="si">love</span> their Duos</h2><p>Hear for yourself.</p></div>
   <div class="test-grid">
     <div class="test-row reveal">
-      <div class="tcard blue" style="flex:1.47"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive! The attention to detail in each asset truly brings the virtual environment to life. From intricate textures to realistic lighting, every element is crafted with precision.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
-      <div class="tcard" style="flex:1"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive! The attention to detail in each asset truly brings the virtual environment to life.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
+      <div class="tcard blue" style="flex:1.47; background-image: url('assets/pattern-1.png'); background-size: cover; background-position: center;"><div class="tcard-txt">My Duo remembered that I hate early morning meetings and automatically rescheduled a call my coworker set for 7am. I didn't even have to ask — it just handled it. This is the future of personal AI.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=32" alt=""></div><div class="tcard-name">James Chen</div></div></div>
+      <div class="tcard" style="flex:1"><div class="tcard-txt">I was skeptical about another AI product, but Duo is genuinely different. It actually learns my preferences over time and acts on them without me repeating myself.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=47" alt=""></div><div class="tcard-name">Priya Sharma</div></div></div>
     </div>
     <div class="test-row reveal rd1">
-      <div class="tcard" style="flex:1"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive!</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
-      <div class="tcard" style="flex:1"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
-      <div class="tcard" style="flex:1"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive! The attention to detail in each asset truly brings the virtual environment to life.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
+      <div class="tcard" style="flex:1"><div class="tcard-txt">The privacy-first approach sold me. Zero data retention and I can see exactly what my Duo knows about me at any time.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=12" alt=""></div><div class="tcard-name">Marcus Johnson</div></div></div>
+      <div class="tcard" style="flex:1"><div class="tcard-txt">Duo booked me a restaurant, reminded me to pick up flowers, and even suggested a playlist for the drive. Best date night I've had in years.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=26" alt=""></div><div class="tcard-name">Sofia Martinez</div></div></div>
+      <div class="tcard" style="flex:1"><div class="tcard-txt">As a developer, having Duo spin up environments and manage my workflow has saved me hours every week. It's like having a senior engineer on call 24/7 who actually knows my codebase.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=57" alt=""></div><div class="tcard-name">Alex Kim</div></div></div>
     </div>
     <div class="test-row reveal rd2">
-      <div class="tcard" style="flex:1.47"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive! The attention to detail in each asset truly brings the virtual environment to life. From intricate textures to realistic lighting, every element is crafted with precision.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
-      <div class="tcard blue" style="flex:1"><div class="tcard-txt">I recently had the pleasure of working with a talented creator who specializes in 3D assets for HELIX life. Their work is nothing short of impressive! The attention to detail in each asset truly brings the virtual environment to life.</div><div class="tcard-foot"><div class="tcard-ava"></div><div class="tcard-name">Callum Noble</div></div></div>
+      <div class="tcard" style="flex:1.47"><div class="tcard-txt">I've tried ChatGPT, Claude, Gemini — none of them remember who I am between sessions. My Duo knows my schedule, my preferences, my goals. It's not just an assistant, it feels like it's actually on my team. The proactive suggestions alone have changed how I work.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=33" alt=""></div><div class="tcard-name">Rachel O'Brien</div></div></div>
+      <div class="tcard blue" style="flex:1; background-image: url('assets/pattern-2.png'); background-size: cover; background-position: center;"><div class="tcard-txt">My Duo found cheaper alternatives for my grocery list and ordered everything through DoorDash while I was in a meeting. Saved me $40 and 45 minutes. I'm never going back.</div><div class="tcard-foot"><div class="tcard-ava"><img src="https://i.pravatar.cc/64?img=68" alt=""></div><div class="tcard-name">Daniel Park</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- BOTTOM CTA + FOOTER -->
 <section class="bottom-cta" id="cta">
-  <div class="bottom-cta-orb"><img src="https://www.figma.com/api/mcp/asset/e346e46c-650a-4f9f-b205-3a186faca8f3" alt=""></div>
+  <div class="bottom-cta-orb"><canvas id="footer-spline-canvas"></canvas></div>
   <div class="bottom-cta-content reveal">
-    <h2>Meet <span class="si">Your Own</span> AI.<br>Not Theirs.</h2>
+    <h2>Create <span class="si">Your</span> Duo.<br>It's Free.</h2>
     <p>Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
-    <a href="#" class="btn-dark">Create Your Duo For Free <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
-  </div>
-  <div class="bottom-cta-footer">
-    <a href="#" class="footer-logo"><img src="assets/duo-logo.svg" alt="Duo"></a>
-    <div class="footer-socials">
-      <a href="#" class="footer-social" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.12-.098.246-.198.373-.292a.074.074 0 01.078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.094.246.194.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" fill="#000"/></svg></a>
-      <a href="#" class="footer-social" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#000"/></svg></a>
-      <a href="#" class="footer-social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#000"/></svg></a>
-    </div>
+    <a href="#" class="btn-dark">Get Started <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
   </div>
 </section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="sf-top">
+      <div class="sf-brand">
+        <a href="#" class="footer-logo"><img src="assets/duo-logo.svg" alt="Duo"></a>
+        <p class="sf-tagline">Your private, hyper-personal AI companion.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.12-.098.246-.198.373-.292a.074.074 0 01.078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.094.246.194.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" fill="currentColor"/></svg></a>
+          <a href="#" class="footer-social" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg></a>
+          <a href="#" class="footer-social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-cols">
+        <div class="sf-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#compare">Compare</a>
+          <a href="#">Pricing</a>
+        </div>
+        <div class="sf-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="sf-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <p>&copy; 2026 Duo AI, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 <script type="module">
 // Spline Runtime — load scene, move orb behind phone
@@ -920,6 +1109,30 @@ if (container && canvas) {
     container.classList.add('loaded');
   }
 }
+
+// Footer Spline orb
+const footerCanvas = document.getElementById('footer-spline-canvas');
+if (footerCanvas) {
+  try {
+    const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
+    const footerSpline = new Application(footerCanvas);
+    await footerSpline.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
+  } catch (e) {
+    console.error('Footer Spline load failed:', e);
+  }
+}
+
+// Footer orb color rotation
+const ctaSection = document.querySelector('.bottom-cta');
+if (ctaSection) {
+  const orbColors = [null, 'orb-sarah', 'orb-david', 'orb-amy'];
+  let orbIdx = 0;
+  setInterval(() => {
+    ctaSection.classList.remove('orb-sarah', 'orb-david', 'orb-amy');
+    orbIdx = (orbIdx + 1) % orbColors.length;
+    if (orbColors[orbIdx]) ctaSection.classList.add(orbColors[orbIdx]);
+  }, 3000);
+}
 </script>
 <script>
 const nav = document.getElementById('nav');
@@ -964,7 +1177,7 @@ new Splide('#duo-carousel', {
   var wrappers = bar.querySelectorAll('.duo-item-wrapper');
   var panels = phone.querySelectorAll('.chat-phone-panel');
   if (wrappers.length === 0 || panels.length === 0) return;
-  var idx = 3;
+  var idx = 0;
 
   function restartStroke(wrapper) {
     var stroke = wrapper && wrapper.querySelector('.duo-item-stroke');
@@ -995,11 +1208,23 @@ new Splide('#duo-carousel', {
     restartStroke(next);
   }
 
+  var timer = null;
+  function startAutoRotate() {
+    clearInterval(timer);
+    timer = setInterval(function() {
+      goTo((idx + 1) % wrappers.length);
+    }, DUO_INTERVAL_MS);
+  }
+
   wrappers.forEach(function(w, i) {
-    w.addEventListener('click', function() { goTo(i); });
+    w.addEventListener('click', function() {
+      goTo(i);
+      startAutoRotate();
+    });
   });
 
-  goTo(3);
+  goTo(0);
+  startAutoRotate();
 })();
 </script>
 </body>
