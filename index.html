@@ -421,12 +421,12 @@ img { display: block; max-width: 100%; }
 .comp-logos .comp-logos-inner { display: flex; gap: 34px; padding: 0 0 0 24px; align-items: center; }
 .comp-logos img { height: 21px; width: auto; }
 .comp-table { border-radius: 12px; overflow: hidden; position: relative; max-width: 720px; margin: 0 auto; }
-.comp-table-hl { position: absolute; top: 0; bottom: 0; left: 406px; width: 87px; background: var(--blue); border-radius: 12px; z-index: 1; }
+.comp-table-hl { position: absolute; top: 0; bottom: 0; left: 406px; width: 87px; background: var(--black); border-radius: 12px; z-index: 1; }
 .comp-row { display: flex; align-items: center; padding: 20px 0 20px 20px; gap: 12px; }
 .comp-row:nth-child(even) { background: #fff; border-radius: 4px; }
 .comp-row:nth-child(odd) { background: transparent; }
 .comp-row:last-child { background: #f5f5f5; border-radius: 0 0 12px 12px; }
-.comp-row-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; z-index: 2; object-fit: contain; }
+.comp-row-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; z-index: 2; object-fit: contain; opacity: 0.56; }
 .comp-row-text { flex: 1; font-size: 14px; font-weight: 500; line-height: 1.2; position: relative; z-index: 2; }
 .comp-scores { display: flex; gap: 94px; padding: 0 24px; flex-shrink: 0; position: relative; z-index: 2; }
 .comp-scores img { width: 24px; height: 24px; flex-shrink: 0; }
@@ -504,39 +504,139 @@ img { display: block; max-width: 100%; }
 .rd1 { transition-delay: .1s; } .rd2 { transition-delay: .2s; } .rd3 { transition-delay: .3s; }
 
 /* ── RESPONSIVE ── */
+
+/* Tablet landscape */
 @media (max-width: 1024px) {
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 44px; }
-  .features-grid { grid-template-columns: repeat(2,1fr); }
-  .fcard { height: 380px; }
-  .hero-inner { grid-template-columns: 1fr; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-left { align-items: center; text-align: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-right { justify-content: center; }
   .chat-phone { max-width: 324px; }
+  .hero-right { margin-left: 0; margin-top: 0; }
+  .features-grid { grid-template-columns: repeat(2,1fr); }
+  .fcard { height: 380px; }
   .comp-scores { gap: 60px; }
   .comp-logos .comp-logos-inner { gap: 60px; }
   .comp-table-hl { left: 55%; width: 70px; }
   .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
+  .bottom-cta-orb { width: 600px; height: 600px; }
 }
+
+/* Tablet portrait */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hero { border-radius: 0 0 32px 32px; }
   .hero-spline, .hero-spline-scene { border-radius: 0 0 32px 32px; }
   .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 36px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .fcard { height: auto; min-height: 360px; }
-  .test-row { flex-direction: column; }
+  .hero-inner { padding: 120px 20px 60px; }
+  .hero-sub { font-size: 15px; }
+  .duo-bar-inner { gap: 10px; justify-content: flex-start; }
+  .duo-item { min-width: 190px; padding: 8px 12px; gap: 10px; }
+  .duo-ava { width: 34px; height: 34px; }
+  .duo-name { font-size: 13px; }
+  .duo-sub { font-size: 12px; }
+  .carousel-card { width: 290px; height: 460px; }
+  .sec-head { padding: 100px 20px 0; }
+  .sec-head p { font-size: 15px; }
+  .features-grid { grid-template-columns: 1fr; padding: 0 20px 80px; gap: 20px; }
+  .fcard { height: auto; min-height: 340px; }
+  .fcard-top { padding: 24px 24px 0; }
+  .fcard-top h3 { font-size: 20px; }
+  .fcard-top p { font-size: 14px; }
+  .comparison { padding: 100px 20px 80px; }
+  .comp-head h2 { font-size: 36px; }
+  .comp-head p { font-size: 15px; }
   .comp-scores { gap: 24px; }
   .comp-logos .comp-logos-inner { gap: 24px; }
   .comp-table-hl { display: none; }
+  .comp-row { padding: 16px 0 16px 16px; }
+  .comp-row-text { font-size: 13px; }
   .comp-legend { flex-direction: column; gap: 16px; }
   .comp-legend-r { flex-wrap: wrap; }
+  .testimonials { padding: 100px 0 80px; }
+  .test-grid { padding: 0 20px; gap: 16px; }
+  .test-row { flex-direction: column; gap: 16px; }
+  .tcard { min-height: 220px; padding: 24px; }
+  .tcard-txt { font-size: 15px; }
+  .bottom-cta { min-height: 70vh; }
+  .bottom-cta h2 { font-size: 36px; }
+  .bottom-cta p { font-size: 15px; }
+  .bottom-cta-orb { width: 400px; height: 400px; }
   .sf-top { flex-direction: column; gap: 40px; }
   .sf-brand { max-width: 100%; }
   .sf-cols { gap: 32px; }
   .sf-bottom { text-align: center; }
-  .sec-head, .comparison, .testimonials { padding-top: 100px; }
-  .bottom-cta { min-height: 80vh; }
-  .bottom-cta-orb { width: 350px; height: 350px; }
+  .site-footer { padding: 48px 20px 24px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 28px; }
+  .hero-inner { padding: 100px 16px 40px; gap: 24px; }
+  .hero-sub { font-size: 14px; margin-bottom: 20px; }
+  .btn-dark { padding: 10px 18px; font-size: 13px; }
+  .btn-blue { padding: 14px 24px; font-size: 14px; }
+  .chat-phone { width: 270px; height: 480px; padding: 16px 14px; }
+  .duo-bar { padding: 12px 16px 0; }
+  .duo-bar-inner { gap: 8px; }
+  .duo-item { min-width: 170px; padding: 8px 10px; border-radius: 12px; }
+  .duo-ava { width: 30px; height: 30px; }
+  .duo-name { font-size: 12px; }
+  .duo-sub { font-size: 11px; }
+  .carousel { padding: 32px 0 0; padding-left: 16px; padding-right: 16px; }
+  .carousel-card { width: 260px; height: 420px; padding: 16px; }
+  .carousel-card-title { font-size: 19px; }
+  .chat-bubble { font-size: 12px; padding: 8px 12px; }
+  .carousel .splide__arrows { padding: 32px 0 0; }
+  .carousel .splide__arrow { width: 38px; height: 38px; }
+  .sec-head { padding: 80px 16px 0; }
+  .sec-head h2 { margin-bottom: 16px; }
+  .sec-head p { font-size: 14px; }
+  .features-grid { margin-top: 32px; padding: 0 16px 60px; gap: 16px; }
+  .fcard { min-height: 300px; border-radius: 20px; }
+  .fcard-top { padding: 20px 20px 0; }
+  .fcard-top h3 { font-size: 18px; line-height: 1.2; }
+  .fcard-top p { font-size: 13px; line-height: 1.4; }
+  .comparison { padding: 80px 16px 60px; }
+  .comp-head { margin-bottom: 32px; }
+  .comp-head h2 { font-size: 28px; margin-bottom: 16px; }
+  .comp-head p { font-size: 14px; }
+  .comp-row { padding: 14px 0 14px 12px; gap: 8px; }
+  .comp-row-icon { width: 18px; height: 18px; }
+  .comp-row-text { font-size: 12px; }
+  .comp-scores { gap: 16px; padding: 0 12px; }
+  .comp-scores img { width: 20px; height: 20px; }
+  .comp-logos img { height: 16px; }
+  .comp-logos .comp-logos-inner { gap: 16px; padding: 0 0 0 12px; }
+  .comp-legend { padding: 16px 0; }
+  .comp-legend-l { font-size: 12px; }
+  .comp-legend-r { font-size: 12px; gap: 12px; }
+  .comp-legend-item img { width: 16px; height: 16px; }
+  .testimonials { padding: 80px 0 60px; }
+  .test-head { margin-bottom: 32px; }
+  .test-head h2 { font-size: 28px; margin-bottom: 16px; }
+  .test-head p { font-size: 14px; }
+  .test-grid { padding: 0 16px; gap: 12px; }
+  .test-row { gap: 12px; }
+  .tcard { min-height: 180px; padding: 20px; border-radius: 16px; }
+  .tcard-txt { font-size: 14px; line-height: 1.5; }
+  .tcard-name { font-size: 13px; }
+  .tcard-ava { width: 28px; height: 28px; }
+  .bottom-cta { min-height: 60vh; }
+  .bottom-cta h2 { font-size: 28px; }
+  .bottom-cta p { font-size: 14px; max-width: 300px; }
+  .bottom-cta-content { padding: 0 16px; }
+  .bottom-cta-orb { width: 300px; height: 300px; }
+  .site-footer { padding: 40px 16px 20px; }
+  .sf-top { gap: 32px; margin-bottom: 32px; }
+  .sf-cols { flex-wrap: wrap; gap: 24px; }
+  .sf-col { min-width: 120px; }
+  .sf-col h4 { font-size: 12px; }
+  .sf-col a { font-size: 13px; }
+  .sf-tagline { font-size: 13px; }
+  .sf-bottom p { font-size: 12px; }
 }
 </style>
 </head>
