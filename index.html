@@ -331,18 +331,18 @@ img { display: block; max-width: 100%; }
 @keyframes duo-stroke-draw { to { stroke-dashoffset: 0; } }
 .duo-item { flex-shrink: 0; display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 14px; border: 1px solid rgba(0,0,0,.08); background: #fff; min-width: 220px; transition: background .2s, border-color .2s, color .2s; cursor: pointer; }
 .duo-item:hover { background: #f8fafc; border-color: rgba(0,0,0,.1); }
-.duo-item.active { background: #fff; color: var(--black); }
-.duo-item.active:hover { background: #fff; }
-.duo-item-wrapper[data-index="1"].active .duo-item { background: #fff; color: var(--black); }
-.duo-item-wrapper[data-index="1"].active .duo-item:hover { background: #fff; }
+.duo-item.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.duo-item.active:hover { background: var(--blue); border-color: var(--blue); }
+.duo-item-wrapper[data-index="1"].active .duo-item { background: #FF5895; color: #fff; border-color: #FF5895; }
+.duo-item-wrapper[data-index="1"].active .duo-item:hover { background: #FF5895; border-color: #FF5895; }
 .duo-item-wrapper[data-index="1"].active .duo-item-stroke rect { stroke: #FF5895; }
-.duo-item-wrapper[data-index="2"].active .duo-item { background: #fff; color: var(--black); }
-.duo-item-wrapper[data-index="2"].active .duo-item:hover { background: #fff; }
+.duo-item-wrapper[data-index="2"].active .duo-item { background: #B213F6; color: #fff; border-color: #B213F6; }
+.duo-item-wrapper[data-index="2"].active .duo-item:hover { background: #B213F6; border-color: #B213F6; }
 .duo-item-wrapper[data-index="2"].active .duo-item-stroke rect { stroke: #B213F6; }
-.duo-item-wrapper[data-index="3"].active .duo-item { background: #fff; color: var(--black); }
-.duo-item-wrapper[data-index="3"].active .duo-item:hover { background: #fff; }
+.duo-item-wrapper[data-index="3"].active .duo-item { background: #FF7A3C; color: #fff; border-color: #FF7A3C; }
+.duo-item-wrapper[data-index="3"].active .duo-item:hover { background: #FF7A3C; border-color: #FF7A3C; }
 .duo-item-wrapper[data-index="3"].active .duo-item-stroke rect { stroke: #FF7A3C; }
-.duo-item.active .duo-sub { color: var(--text-secondary); }
+.duo-item.active .duo-sub { color: rgba(255,255,255,.85); }
 .duo-ava { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-light), var(--blue)); flex-shrink: 0; overflow: hidden; }
 .duo-ava img { width: 100%; height: 100%; object-fit: cover; }
 .duo-name { font-size: 14px; font-weight: 600; padding-bottom: 2px; }
@@ -557,8 +557,13 @@ img { display: block; max-width: 100%; }
   .hero-spline { width: 760px; height: 1300px; transform: translate(-50%, -38%) scale(0.7); }
   .chat-phone { width: 240px; height: 420px; padding: 14px 12px; }
   .duo-bar-inner { gap: 10px; justify-content: flex-start; }
-  .duo-item-wrapper.active .duo-item-stroke { display: none; }
+  .duo-item-wrapper.active .duo-item-stroke { display: none !important; visibility: hidden; height: 0; overflow: hidden; }
   .duo-item { min-width: 190px; padding: 8px 12px; gap: 10px; }
+  .duo-item.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .duo-item-wrapper[data-index="1"].active .duo-item { background: #FF5895; color: #fff; border-color: #FF5895; }
+  .duo-item-wrapper[data-index="2"].active .duo-item { background: #B213F6; color: #fff; border-color: #B213F6; }
+  .duo-item-wrapper[data-index="3"].active .duo-item { background: #FF7A3C; color: #fff; border-color: #FF7A3C; }
+  .duo-item.active .duo-sub { color: rgba(255,255,255,.85); }
   .duo-ava { width: 34px; height: 34px; }
   .duo-name { font-size: 13px; }
   .duo-sub { font-size: 12px; }
@@ -612,6 +617,11 @@ img { display: block; max-width: 100%; }
   .duo-bar { padding: 12px 16px 0; }
   .duo-bar-inner { gap: 8px; }
   .duo-item { min-width: 170px; padding: 8px 10px; border-radius: 12px; }
+  .duo-item.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .duo-item-wrapper[data-index="1"].active .duo-item { background: #FF5895; color: #fff; border-color: #FF5895; }
+  .duo-item-wrapper[data-index="2"].active .duo-item { background: #B213F6; color: #fff; border-color: #B213F6; }
+  .duo-item-wrapper[data-index="3"].active .duo-item { background: #FF7A3C; color: #fff; border-color: #FF7A3C; }
+  .duo-item.active .duo-sub { color: rgba(255,255,255,.85); }
   .duo-ava { width: 30px; height: 30px; }
   .duo-name { font-size: 12px; }
   .duo-sub { font-size: 11px; }
