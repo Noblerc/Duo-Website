@@ -1364,6 +1364,9 @@ new Splide('#duo-carousel', {
     if (next) next.classList.add('active');
     for (var p = 0; p < panels.length; p++) panels[p].classList.toggle('active', p === idx);
     restartStroke(next);
+    if (window.innerWidth <= 768 && next) {
+      next.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+    }
   }
 
   var timer = null;
