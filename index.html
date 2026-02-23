@@ -320,7 +320,7 @@ img { display: block; max-width: 100%; }
 
 /* ── DUO AVATARS BAR ── */
 .duo-bar { max-width: var(--max-w); margin: 0 auto; padding: 16px 24px 0; display: flex; flex-direction: column; gap: 0; overflow: visible; }
-.duo-bar-inner { display: flex; justify-content: center; gap: 16px; overflow-x: auto; scrollbar-width: none; padding: 12px 18px; margin: -12px -18px; }
+.duo-bar-inner { display: flex; justify-content: center; gap: 16px; overflow-x: auto; scrollbar-width: none; padding: 12px 18px; margin: -12px -18px; scroll-behavior: smooth; }
 .duo-bar::-webkit-scrollbar, .duo-bar-inner::-webkit-scrollbar { display: none; }
 .duo-item-wrapper { position: relative; flex-shrink: 0; cursor: pointer; overflow: visible; }
 .duo-item-stroke { position: absolute; inset: -6px; pointer-events: none; display: none; z-index: 1; overflow: visible; border-radius: 20px; }
@@ -1365,7 +1365,13 @@ new Splide('#duo-carousel', {
     for (var p = 0; p < panels.length; p++) panels[p].classList.toggle('active', p === idx);
     restartStroke(next);
     if (window.innerWidth <= 768 && next) {
-      next.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+      var inner = bar.querySelector('.duo-bar-inner');
+      if (inner) {
+        var left = next.offsetLeft;
+        var half = next.offsetWidth / 2;
+        var center = inner.clientWidth / 2;
+        inner.scrollLeft = Math.max(0, left - center + half);
+      }
     }
   }
 
