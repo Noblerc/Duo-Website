@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -109,9 +110,9 @@ img { display: block; max-width: 100%; }
 .hero-inner {
   position: relative; z-index: 3;
   max-width: var(--max-w); margin: 0 auto; padding: 160px 24px 80px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
 }
-.hero-left { text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+.hero-left { text-align: left; display: flex; flex-direction: column; align-items: flex-start; position: relative; z-index: 4; }
 .hero h1 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; }
 .hero h1 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
 .hero-sub { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 471px; margin-bottom: 28px; }
@@ -382,18 +383,16 @@ img { display: block; max-width: 100%; }
 .chat-action-icon { width: 16px; height: 16px; border-radius: 100px; background: #1397F6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .chat-action-icon svg { width: 10px; height: 10px; }
 
-.splide__slide:nth-child(1) .chat-user { background: #FF7A3C; }
-.splide__slide:nth-child(1) .chat-action-icon { background: #FF7A3C; }
-.splide__slide:nth-child(3) .chat-user { background: #FF5895; }
-.splide__slide:nth-child(3) .chat-action-icon { background: #FF5895; }
-
-.splide__slide:nth-child(4) .chat-user { background: #B213F6; }
-.splide__slide:nth-child(4) .chat-action-icon { background: #B213F6; }
-
-.splide__slide:nth-child(6) .chat-user { background: #FF5895; }
-.splide__slide:nth-child(6) .chat-action-icon { background: #FF5895; }
-.splide__slide:nth-child(7) .chat-user { background: #FF7A3C; }
-.splide__slide:nth-child(7) .chat-action-icon { background: #FF7A3C; }
+[data-card="1"] .chat-user { background: #FF7A3C; }
+[data-card="1"] .chat-action-icon { background: #FF7A3C; }
+[data-card="3"] .chat-user { background: #FF5895; }
+[data-card="3"] .chat-action-icon { background: #FF5895; }
+[data-card="4"] .chat-user { background: #B213F6; }
+[data-card="4"] .chat-action-icon { background: #B213F6; }
+[data-card="6"] .chat-user { background: #FF5895; }
+[data-card="6"] .chat-action-icon { background: #FF5895; }
+[data-card="7"] .chat-user { background: #FF7A3C; }
+[data-card="7"] .chat-action-icon { background: #FF7A3C; }
 .chat-action-body { padding: 8px 12px; font-size: 12px; font-weight: 500; line-height: 16px; color: rgba(0,0,0,1); font-family: 'Inter', sans-serif; }
 .chat-action-task { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.32); border-radius: 12px; padding: 0 8px 0 0; margin-top: 8px; font-size: 11px; font-weight: 500; color: rgba(0,0,0,0.64); font-family: 'Inter', sans-serif; }
 .chat-action-task-icon { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -460,7 +459,7 @@ img { display: block; max-width: 100%; }
 .bottom-cta.orb-sarah { background: #FFF4F7; }
 .bottom-cta.orb-david { background: #F8F5FF; }
 .bottom-cta.orb-amy { background: #FFF6EF; }
-.bottom-cta-orb { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; pointer-events: none; }
+.bottom-cta-orb { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; pointer-events: none; z-index: 0; }
 .bottom-cta-orb canvas { width: 100%; height: 100%; display: block; }
 .bottom-cta-orb::after { content: ''; position: absolute; inset: 0; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
 .bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
@@ -530,8 +529,11 @@ img { display: block; max-width: 100%; }
   .hero-spline, .hero-spline-scene { border-radius: 0 0 32px 32px; }
   .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 36px; }
-  .hero-inner { padding: 120px 20px 60px; }
+  .hero-inner { padding: 120px 20px 40px; }
   .hero-sub { font-size: 15px; }
+  .hero-right { margin-top: 0; }
+  .hero-spline { width: 760px; height: 1300px; transform: translate(-50%, -38%) scale(0.7); }
+  .chat-phone { width: 240px; height: 420px; padding: 14px 12px; }
   .duo-bar-inner { gap: 10px; justify-content: flex-start; }
   .duo-item { min-width: 190px; padding: 8px 12px; gap: 10px; }
   .duo-ava { width: 34px; height: 34px; }
@@ -574,11 +576,16 @@ img { display: block; max-width: 100%; }
 /* Mobile */
 @media (max-width: 480px) {
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 28px; }
-  .hero-inner { padding: 100px 16px 40px; gap: 24px; }
-  .hero-sub { font-size: 14px; margin-bottom: 20px; }
+  .hero-inner { padding: 90px 16px 30px; gap: 12px; }
+  .hero-sub { font-size: 14px; margin-bottom: 16px; }
   .btn-dark { padding: 10px 18px; font-size: 13px; }
   .btn-blue { padding: 14px 24px; font-size: 14px; }
-  .chat-phone { width: 270px; height: 480px; padding: 16px 14px; }
+  .hero-right { margin-top: 0; }
+  .hero-spline { width: 760px; height: 1300px; transform: translate(-50%, -38%) scale(0.7); }
+  .chat-phone { width: 220px; height: 380px; padding: 12px 10px; }
+  .chat-phone-header-avatar { width: 20px; height: 20px; }
+  .chat-phone-header-name { font-size: 9px; }
+  .chat-phone-block { font-size: 9px; }
   .duo-bar { padding: 12px 16px 0; }
   .duo-bar-inner { gap: 8px; }
   .duo-item { min-width: 170px; padding: 8px 10px; border-radius: 12px; }
@@ -878,23 +885,8 @@ img { display: block; max-width: 100%; }
   <div class="splide__track">
   <ul class="splide__list">
 
-    <!-- Card 1: Books restaurants, flights -->
-    <li class="splide__slide"><div class="carousel-card">
-      <div class="carousel-card-bg"><img src="assets/book restaurants.png" alt=""></div>
-      <div class="carousel-card-gradient"></div>
-      <div class="carousel-card-header">
-        <div class="carousel-card-title">Books restaurants, flights</div>
-        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/amy's duo.png" alt=""></div><div><span class="carousel-badge-name">Amy</span><br><span class="carousel-badge-sub">Cheerful Kpop idol oppa</span></div></div>
-      </div>
-      <div class="carousel-card-chat">
-        <div class="chat-bubble chat-duo">I see that John and Dan are visiting tonight. Shall I book dinner someplace nice, within your usual budget range?</div>
-        <div class="chat-bubble chat-user">That would be great!</div>
-        <div class="chat-bubble chat-duo">Reservation booked:<br><br>3 people<br>7:30pm<br>La Trattoria<br><br>Let me know if you'd like me to change it</div>
-      </div>
-    </div></li>
-
     <!-- Card 2: Manages your inbox -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="2"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/manages your inbox.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -909,7 +901,7 @@ img { display: block; max-width: 100%; }
     </div></li>
 
     <!-- Card 3: Goes shopping for you -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="3"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/goes shopping for you.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -931,7 +923,7 @@ img { display: block; max-width: 100%; }
     </div></li>
 
     <!-- Card 4: Trade stocks -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="4"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/trade stocks.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -945,8 +937,23 @@ img { display: block; max-width: 100%; }
       </div>
     </div></li>
 
+    <!-- Card 1: Books restaurants, flights -->
+    <li class="splide__slide" data-card="1"><div class="carousel-card">
+      <div class="carousel-card-bg"><img src="assets/book restaurants.png" alt=""></div>
+      <div class="carousel-card-gradient"></div>
+      <div class="carousel-card-header">
+        <div class="carousel-card-title">Books restaurants, flights</div>
+        <div class="carousel-badge"><div class="carousel-badge-ava"><img src="assets/amy's duo.png" alt=""></div><div><span class="carousel-badge-name">Amy</span><br><span class="carousel-badge-sub">Cheerful Kpop idol oppa</span></div></div>
+      </div>
+      <div class="carousel-card-chat">
+        <div class="chat-bubble chat-duo">I see that John and Dan are visiting tonight. Shall I book dinner someplace nice, within your usual budget range?</div>
+        <div class="chat-bubble chat-user">That would be great!</div>
+        <div class="chat-bubble chat-duo">Reservation booked:<br><br>3 people<br>7:30pm<br>La Trattoria<br><br>Let me know if you'd like me to change it</div>
+      </div>
+    </div></li>
+
     <!-- Card 5: Builds full websites, apps -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="5"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/build websites and apps.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -966,7 +973,7 @@ img { display: block; max-width: 100%; }
     </div></li>
 
     <!-- Card 6: Set up dates -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="6"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/set up dates.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -985,7 +992,7 @@ img { display: block; max-width: 100%; }
     </div></li>
 
     <!-- Card 7: Talks to you in its own voice -->
-    <li class="splide__slide"><div class="carousel-card">
+    <li class="splide__slide" data-card="7"><div class="carousel-card">
       <div class="carousel-card-bg"><img src="assets/Talk to you with its own voice.png" alt=""></div>
       <div class="carousel-card-gradient"></div>
       <div class="carousel-card-header">
@@ -1242,7 +1249,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
 
 new Splide('#duo-carousel', {
-  type: 'slide',
+  type: 'loop',
   perPage: 3,
   perMove: 1,
   gap: '32px',
@@ -1251,10 +1258,18 @@ new Splide('#duo-carousel', {
   fixedWidth: '345px',
   fixedHeight: '516px',
   trimSpace: false,
+  drag: 'free',
+  autoScroll: {
+    speed: 0.2,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  },
+  easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
   breakpoints: {
-    768: { fixedWidth: '300px', fixedHeight: '480px' }
+    768: { fixedWidth: '290px', fixedHeight: '460px' },
+    480: { fixedWidth: '260px', fixedHeight: '420px' }
   }
-}).mount();
+}).mount({ AutoScroll: window.splide.Extensions.AutoScroll });
 
 (function injectCarouselArrows() {
   var root = document.getElementById('duo-carousel');
