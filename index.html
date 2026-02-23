@@ -1303,7 +1303,7 @@ new Splide('#duo-carousel', {
   trimSpace: false,
   drag: 'free',
   autoScroll: {
-    speed: 0.2,
+    speed: window.innerWidth <= 768 ? 0.5 : 0.2,
     pauseOnHover: true,
     pauseOnFocus: true,
   },
