@@ -53,8 +53,11 @@ img { display: block; max-width: 100%; }
 .nav-links a:hover { color: var(--black); }
 
 /* Hamburger */
-.nav-hamburger { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; border-radius: 10px; background: none; border: 1px solid var(--border); transition: background .2s; }
+.nav-hamburger { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; border-radius: 10px; background: none; border: 1px solid var(--border); transition: background .2s; -webkit-tap-highlight-color: transparent; }
 .nav-hamburger:hover { background: #f5f5f5; }
+.nav-hamburger:active { background: none; }
+.nav-hamburger.active { background: none; }
+.nav-hamburger.active:hover { background: none; }
 .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--black); border-radius: 2px; position: relative; transition: transform .3s, opacity .3s; }
 .nav-hamburger span::before, .nav-hamburger span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--black); border-radius: 2px; transition: transform .3s, opacity .3s; }
 .nav-hamburger span::before { top: -6px; }
@@ -131,7 +134,7 @@ img { display: block; max-width: 100%; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
 }
 .hero-left { text-align: left; display: flex; flex-direction: column; align-items: flex-start; position: relative; z-index: 4; }
-.hero h1 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; }
+.hero h1 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: balance; }
 .hero h1 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
 .hero-sub { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 471px; margin-bottom: 28px; }
 
@@ -167,7 +170,6 @@ img { display: block; max-width: 100%; }
 .chat-phone-header-avatar {
   width: 28px; height: 28px; border-radius: 50%;
   object-fit: cover; display: block; flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,.5);
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
 }
 .chat-phone-header-name {
@@ -320,7 +322,7 @@ img { display: block; max-width: 100%; }
 
 /* ── DUO AVATARS BAR ── */
 .duo-bar { max-width: var(--max-w); margin: 0 auto; padding: 16px 24px 0; display: flex; flex-direction: column; gap: 0; overflow: visible; }
-.duo-bar-inner { display: flex; justify-content: center; gap: 16px; overflow-x: auto; scrollbar-width: none; padding: 12px 18px; margin: -12px -18px; scroll-behavior: smooth; }
+.duo-bar-inner { display: flex; justify-content: center; gap: 16px; overflow-x: auto; scrollbar-width: none; padding: 16px; margin: -16px; scroll-behavior: smooth; }
 .duo-bar::-webkit-scrollbar, .duo-bar-inner::-webkit-scrollbar { display: none; }
 .duo-item-wrapper { position: relative; flex-shrink: 0; cursor: pointer; overflow: visible; }
 .duo-item-stroke { position: absolute; inset: -6px; pointer-events: none; display: none; z-index: 1; overflow: visible; border-radius: 20px; }
@@ -350,9 +352,9 @@ img { display: block; max-width: 100%; }
 
 /* ── SECTION HEADINGS ── */
 .sec-head { text-align: center; padding: 140px 24px 0; }
-.sec-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 24px; }
+.sec-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 24px; text-wrap: balance; }
 .sec-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.sec-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
+.sec-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); max-width: 640px; margin: 0 auto; text-wrap: pretty; }
 .sec-head p em { font-style: italic; }
 
 /* ── CAROUSEL ── */
@@ -423,7 +425,7 @@ img { display: block; max-width: 100%; }
 .fcard { background: #f5f5f5; border-radius: var(--radius-lg); overflow: hidden; height: 396px; display: flex; flex-direction: column; position: relative; }
 .fcard-top { padding: 32px 32px 0; flex-shrink: 0; }
 .fcard-top h3 { font-size: 24px; font-weight: 500; line-height: 24px; margin-bottom: 8px; }
-.fcard-top p { font-size: 15px; font-weight: 500; line-height: 22px; color: var(--text-secondary); }
+.fcard-top p { font-size: 15px; font-weight: 500; line-height: 22px; color: var(--text-secondary); text-wrap: pretty; }
 .fcard-vis { flex: 1; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; position: relative; padding: 0; }
 .fcard-vis img { width: 100%; height: auto; display: block; object-fit: cover; object-position: top; }
 .fcard-cta { }
@@ -433,9 +435,9 @@ img { display: block; max-width: 100%; }
 .comparison { padding: 140px 24px 100px; background: #f5f5f5; }
 .comp-inner { max-width: var(--max-w); margin: 0 auto; }
 .comp-head { text-align: center; margin-bottom: 48px; }
-.comp-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; }
+.comp-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; text-wrap: balance; }
 .comp-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.comp-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: rgba(0,0,0,0.64); }
+.comp-head p { font-size: 16px; font-weight: 500; line-height: 1.5; color: rgba(0,0,0,0.64); text-wrap: pretty; }
 .comp-logos { display: flex; justify-content: flex-end; margin-bottom: 12px; align-items: center; max-width: 720px; margin-left: auto; margin-right: auto; }
 .comp-logos .comp-logos-inner { display: flex; gap: 34px; padding: 0 0 0 24px; align-items: center; }
 .comp-logos img { height: 21px; width: auto; }
@@ -458,9 +460,9 @@ img { display: block; max-width: 100%; }
 /* ── TESTIMONIALS ── */
 .testimonials { padding: 140px 0 120px; }
 .test-head { text-align: center; margin-bottom: 48px; padding: 0 24px; }
-.test-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; }
+.test-head h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 28px; text-wrap: balance; }
 .test-head h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.test-head p { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
+.test-head p { font-size: 16px; font-weight: 500; color: var(--text-secondary); text-wrap: pretty; }
 .test-grid { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 24px; }
 .test-row { display: flex; gap: 24px; }
 .tcard { border-radius: 12px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 275px; background: #f5f5f5; border: none; overflow: hidden; position: relative; }
@@ -486,9 +488,9 @@ img { display: block; max-width: 100%; }
 .bottom-cta.orb-david .bottom-cta-orb::after { background: #b89be6; }
 .bottom-cta.orb-amy .bottom-cta-orb::after { background: #E88B5C; }
 .bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 0 24px; }
-.bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; }
+.bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: balance; }
 .bottom-cta h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
-.bottom-cta p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.bottom-cta p { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; text-wrap: pretty; }
 
 /* ── FOOTER ── */
 .footer-logo { display: flex; align-items: center; }
@@ -701,7 +703,7 @@ img { display: block; max-width: 100%; }
   <a href="#features">Features</a>
   <a href="#compare">Compare</a>
   <a href="#testimonials">Testimonials</a>
-  <a href="#cta" class="btn-dark">Get Started <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
+  <a href="https://duo-mind-spark.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn-dark">Get Started <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
 </div>
 
 <!-- HERO -->
@@ -711,7 +713,7 @@ img { display: block; max-width: 100%; }
     <div class="hero-left reveal">
       <h1>Meet <span class="si">Your Own</span> AI.<br>Not Theirs.</h1>
       <p class="hero-sub">Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
-      <a href="#cta" class="btn-dark">Create Your Duo For Free <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
+      <a href="https://duo-mind-spark.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn-dark">Create Your Duo For Free <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
     </div>
     <div class="hero-right reveal rd2">
       <div class="hero-spline-phone-wrap">
@@ -1136,7 +1138,7 @@ img { display: block; max-width: 100%; }
   <div class="bottom-cta-content reveal">
     <h2>Create <span class="si">Your</span> Duo.<br>It's Free.</h2>
     <p>Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
-    <a href="#" class="btn-dark">Get Started <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
+    <a href="https://duo-mind-spark.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn-dark">Get Started <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
   </div>
 </section>
 
