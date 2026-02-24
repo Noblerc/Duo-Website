@@ -702,7 +702,11 @@ img { display: block; max-width: 100%; }
   .hero-sub { font-size: 18px; margin-bottom: 32px; max-width: 520px; }
   .chat-phone { width: 340px; height: 608px; padding: 22px 20px; }
   .duo-bar { padding: 20px 32px 0; }
-  .duo-item { min-width: 240px; padding: 12px 16px; }
+  .duo-bar-inner { gap: 24px; padding: 20px; margin: -20px; }
+  .duo-item-stroke { inset: -10px; border-radius: 24px; }
+  .duo-item-stroke svg { border-radius: 24px; }
+  .duo-item-stroke rect { stroke-width: 2.5px; }
+  .duo-item { min-width: 240px; padding: 12px 16px; border-radius: 16px; }
   .duo-ava { width: 44px; height: 44px; }
   .duo-name { font-size: 15px; }
   .duo-sub { font-size: 14px; }
@@ -710,9 +714,13 @@ img { display: block; max-width: 100%; }
   .sec-head h2 { font-size: 72px; margin-bottom: 28px; }
   .sec-head p { font-size: 18px; max-width: 720px; }
   .carousel { padding: 56px 32px 0; }
-  .carousel .splide__arrows { padding: 56px 0 0; }
+  .carousel .splide__arrows { padding: 56px 0 0; gap: 16px; }
+  .carousel .splide__arrow { width: 48px; height: 48px; }
+  .carousel .splide__arrow .splide-arrow-img { width: 20px; height: 20px; }
   .carousel-card { width: 380px; height: 568px; border-radius: 32px; padding: 24px; }
   .carousel-card-title { font-size: 25px; }
+  .carousel-card-header { gap: 12px; }
+  .carousel-card-chat { gap: 10px; }
   .features-grid { padding: 0 32px 140px; gap: 40px; margin-top: 56px; }
   .fcard { height: 432px; border-radius: 32px; }
   .fcard-top { padding: 40px 40px 0; }
@@ -725,6 +733,8 @@ img { display: block; max-width: 100%; }
   .testimonials { padding: 180px 0 140px; }
   .test-head h2 { font-size: 72px; margin-bottom: 32px; }
   .test-head p { font-size: 18px; }
+  .test-grid { gap: 28px; }
+  .test-row { gap: 28px; }
   .tcard { min-height: 300px; padding: 40px; border-radius: 16px; }
   .tcard-txt { font-size: 17px; line-height: 24px; }
   .bottom-cta { min-height: 85vh; }
@@ -1371,11 +1381,11 @@ new Splide('#duo-carousel', {
   type: 'loop',
   perPage: 3,
   perMove: 1,
-  gap: '32px',
+  gap: '40px',
   pagination: false,
   arrows: true,
-  fixedWidth: '345px',
-  fixedHeight: '516px',
+  fixedWidth: '380px',
+  fixedHeight: '568px',
   trimSpace: false,
   drag: 'free',
   autoScroll: {
@@ -1385,8 +1395,9 @@ new Splide('#duo-carousel', {
   },
   easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
   breakpoints: {
-    768: { fixedWidth: '290px', fixedHeight: '460px' },
-    480: { fixedWidth: '260px', fixedHeight: '420px' }
+    1399: { fixedWidth: '345px', fixedHeight: '516px', gap: '32px' },
+    768: { fixedWidth: '290px', fixedHeight: '460px', gap: '24px' },
+    480: { fixedWidth: '260px', fixedHeight: '420px', gap: '20px' }
   }
 }).mount({ AutoScroll: window.splide.Extensions.AutoScroll });
 
