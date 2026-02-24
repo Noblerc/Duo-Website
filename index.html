@@ -691,65 +691,6 @@ img { display: block; max-width: 100%; }
   .sf-tagline { font-size: 13px; }
   .sf-bottom p { font-size: 12px; }
 }
-
-/* Large desktop: subtle scale up for wider screens */
-@media (min-width: 1400px) {
-  :root { --max-w: 1280px; }
-  .nav { padding: 22px 0; }
-  .nav-inner { padding: 0 28px; }
-  .nav-links a { font-size: 14px; }
-  .btn-nav { font-size: 13px; padding: 9px 13px 9px 18px; }
-  .hero-inner { padding: 180px 28px 90px; gap: 44px; }
-  .hero h1 { font-size: 66px; margin-bottom: 18px; }
-  .hero-sub { font-size: 17px; margin-bottom: 28px; max-width: 500px; }
-  .chat-phone { width: 320px; height: 574px; padding: 20px 18px; }
-  .duo-bar { padding: 18px 28px 0; }
-  .duo-bar-inner { gap: 20px; padding: 18px; margin: -18px; }
-  .duo-item-stroke { inset: -8px; border-radius: 22px; }
-  .duo-item-stroke svg { border-radius: 22px; }
-  .duo-item-stroke rect { stroke-width: 2px; }
-  .duo-item { min-width: 228px; padding: 11px 15px; border-radius: 15px; }
-  .duo-ava { width: 42px; height: 42px; }
-  .duo-name { font-size: 14px; }
-  .duo-sub { font-size: 13px; }
-  .sec-head { padding: 160px 28px 0; }
-  .sec-head h2 { font-size: 64px; margin-bottom: 24px; }
-  .sec-head p { font-size: 17px; max-width: 680px; }
-  .carousel { padding: 52px 28px 0; }
-  .carousel .splide__arrows { padding: 52px 0 0; gap: 14px; }
-  .carousel .splide__slide { margin-right: 36px !important; }
-  .carousel .splide__arrow { width: 46px; height: 46px; }
-  .carousel .splide__arrow .splide-arrow-img { width: 19px; height: 19px; }
-  .carousel-card { width: 360px; height: 540px; border-radius: 30px; padding: 22px; }
-  .carousel-card-title { font-size: 24px; }
-  .carousel-card-header { gap: 11px; }
-  .carousel-card-chat { gap: 9px; }
-  .features-grid { padding: 0 28px 130px; gap: 36px; margin-top: 52px; }
-  .fcard { height: 412px; border-radius: 30px; }
-  .fcard-top { padding: 36px 36px 0; }
-  .fcard-top h3 { font-size: 25px; line-height: 25px; margin-bottom: 9px; }
-  .fcard-top p { font-size: 15px; line-height: 23px; }
-  .comparison { padding: 160px 28px 110px; }
-  .comp-head { margin-bottom: 52px; }
-  .comp-head h2 { font-size: 64px; margin-bottom: 28px; }
-  .comp-head p { font-size: 17px; }
-  .testimonials { padding: 160px 0 130px; }
-  .test-head h2 { font-size: 64px; margin-bottom: 28px; }
-  .test-head p { font-size: 17px; }
-  .test-grid { gap: 26px; }
-  .test-row { gap: 26px; }
-  .tcard { min-height: 280px; padding: 36px; border-radius: 16px; }
-  .tcard-txt { font-size: 16px; line-height: 23px; }
-  .bottom-cta { min-height: 82vh; }
-  .bottom-cta-content { max-width: 640px; padding: 0 28px; }
-  .bottom-cta h2 { font-size: 64px; margin-bottom: 18px; }
-  .bottom-cta p { font-size: 17px; margin-bottom: 36px; max-width: 440px; }
-  .bottom-cta-orb { width: 820px; height: 820px; }
-  .site-footer { padding: 72px 28px 36px; }
-  .sf-top { margin-bottom: 52px; gap: 72px; }
-  .btn-dark { padding: 13px 15px 13px 22px; font-size: 14px; }
-  .btn-blue { padding: 17px 21px 17px 30px; font-size: 16px; }
-}
 </style>
 </head>
 <body>
@@ -1384,11 +1325,11 @@ new Splide('#duo-carousel', {
   type: 'loop',
   perPage: 3,
   perMove: 1,
-  gap: '36px',
+  gap: '32px',
   pagination: false,
   arrows: true,
-  fixedWidth: '360px',
-  fixedHeight: '540px',
+  fixedWidth: '345px',
+  fixedHeight: '516px',
   trimSpace: false,
   drag: 'free',
   autoScroll: {
@@ -1398,7 +1339,6 @@ new Splide('#duo-carousel', {
   },
   easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
   breakpoints: {
-    1399: { fixedWidth: '345px', fixedHeight: '516px', gap: '32px' },
     768: { fixedWidth: '290px', fixedHeight: '460px', gap: '24px' },
     480: { fixedWidth: '260px', fixedHeight: '420px', gap: '20px' }
   }
