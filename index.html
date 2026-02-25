@@ -124,6 +124,8 @@ img { display: block; max-width: 100%; }
 }
 .hero-spline { position: absolute; width: 760px; height: 1300px; left: 50%; top: 50%; transform: translate(-50%, -33%); z-index: 0; overflow: hidden; border-radius: 0 0 61px 61px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .hero-spline.loaded { opacity: 1; }
+.hero-spline-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
+.hero-spline-loader.hidden { opacity: 0; pointer-events: none; }
 .hero-spline-scene { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 61px 61px; }
 .hero-spline-scene canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
 .hero-spline-scene::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; z-index: 1; mix-blend-mode: color; pointer-events: none; }
@@ -490,7 +492,11 @@ img { display: block; max-width: 100%; }
 .bottom-cta.orb-david { background: #F8F5FF; }
 .bottom-cta.orb-amy { background: #FFF6EF; }
 .bottom-cta-orb { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; pointer-events: none; z-index: 0; }
-.bottom-cta-orb canvas { width: 100%; height: 100%; display: block; }
+.bottom-cta-orb canvas { width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .5s ease; }
+.bottom-cta-orb.loaded canvas { opacity: 1; }
+.bottom-cta-orb-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
+.bottom-cta-orb.loaded .bottom-cta-orb-loader { opacity: 0; pointer-events: none; }
+@keyframes orb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 .bottom-cta-orb::after { content: ''; position: absolute; inset: 0; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
 .bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
 .bottom-cta.orb-david .bottom-cta-orb::after { background: #b89be6; }
@@ -732,6 +738,7 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="hero-right reveal rd2">
       <div class="hero-spline-phone-wrap">
+        <div class="hero-spline-loader" id="hero-spline-loader"></div>
         <div class="hero-spline" id="hero-spline">
           <div class="hero-spline-scene">
             <canvas id="spline-canvas"></canvas>
@@ -1149,7 +1156,7 @@ img { display: block; max-width: 100%; }
 
 <!-- BOTTOM CTA + FOOTER -->
 <section class="bottom-cta" id="cta">
-  <div class="bottom-cta-orb"><canvas id="footer-spline-canvas"></canvas></div>
+  <div class="bottom-cta-orb"><div class="bottom-cta-orb-loader"></div><canvas id="footer-spline-canvas"></canvas></div>
   <div class="bottom-cta-content reveal">
     <h2>Create <span class="si">Your</span> Duo.<br>It's Free.</h2>
     <p>Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
@@ -1233,6 +1240,8 @@ if (container && canvas) {
     const spline = new Application(canvas);
     await spline.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
     container.classList.add('loaded');
+    const heroLoader = document.getElementById('hero-spline-loader');
+    if (heroLoader) heroLoader.classList.add('hidden');
     window.splineRuntime = spline;
 
     const cam = getSplineCamera(spline);
@@ -1272,6 +1281,8 @@ if (container && canvas) {
   } catch (e) {
     console.error('Spline load failed:', e);
     container.classList.add('loaded');
+    const heroLoader = document.getElementById('hero-spline-loader');
+    if (heroLoader) heroLoader.classList.add('hidden');
   }
 }
 
@@ -1282,6 +1293,7 @@ if (footerCanvas) {
     const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
     const footerSpline = new Application(footerCanvas);
     await footerSpline.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
+    footerCanvas.closest('.bottom-cta-orb').classList.add('loaded');
   } catch (e) {
     console.error('Footer Spline load failed:', e);
   }

@@ -1,0 +1,14 @@
+---
+description: Commit and push every change to git
+alwaysApply: true
+---
+
+# Git: Push every change to GitHub
+
+**Required:** After making ANY code changes in this project, you MUST:
+
+1. Stage: `git add` the modified files (e.g. `git add index.html` or `git add -A`).
+2. Commit: `git commit -m "Short description of change"`.
+3. Push: `git push` (or rely on post-commit hook if it runs push).
+
+Do this at the end of every response where you modified files. Do not skip pushing. The user expects every change to be on GitHub.
