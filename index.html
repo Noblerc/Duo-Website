@@ -409,7 +409,7 @@ img { display: block; max-width: 100%; }
 .chat-user { background: #1397F6; color: #fefefe; align-self: flex-end; border-bottom-right-radius: 4px; }
 .chat-action { background: rgba(255,255,255,0.4); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.32); border-radius: 16px; padding: 4px; overflow: hidden; align-self: flex-start; max-width: 100%; }
 .chat-action-bar { background: rgba(255,255,255,0.56); border-radius: 1000px; padding: 4px 8px 4px 4px; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif; }
-.chat-action-bar > span { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-action-bar > span { flex: 1; min-width: 0; }
 .chat-action-icon { width: 16px; height: 16px; border-radius: 100px; background: #1397F6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .chat-action-icon svg { width: 10px; height: 10px; }
 
@@ -593,6 +593,7 @@ img { display: block; max-width: 100%; }
   .duo-name { font-size: 13px; }
   .duo-sub { font-size: 12px; }
   .carousel-card { width: 290px; height: 460px; }
+  [data-card="5"] .chat-action { display: none; }
   .sec-head { padding: 100px 20px 0; }
   .sec-head p { font-size: 15px; }
   .features-grid { grid-template-columns: 1fr; padding: 0 20px 40px; gap: 20px; }
