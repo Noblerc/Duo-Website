@@ -463,6 +463,11 @@ img { display: block; max-width: 100%; }
 .comp-legend { margin-top: 24px; padding: 24px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 720px; margin-left: auto; margin-right: auto; }
 .comp-legend-l { font-size: 14px; color: rgba(0,0,0,0.64); line-height: 1.5; font-weight: 500; }
 .comp-legend-r { display: flex; gap: 16px; font-size: 14px; font-weight: 500; }
+.comp-tabs { display: none; justify-content: center; gap: 8px; margin-bottom: 20px; }
+.comp-tab { padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; display: flex; align-items: center; gap: 8px; }
+.comp-tab img { height: 16px; width: auto; }
+.comp-tab.active { background: var(--black); color: #fff; border-color: var(--black); }
+.comp-logos-mobile { display: none; }
 .comp-legend-item { display: flex; align-items: center; gap: 8px; }
 .comp-legend-item img { width: 20px; height: 20px; }
 
@@ -600,6 +605,15 @@ img { display: block; max-width: 100%; }
   .comp-scores { gap: 24px; }
   .comp-logos .comp-logos-inner { gap: 24px; }
   .comp-table-hl { display: none; }
+  .comp-tabs { display: flex; }
+  .comp-logos { display: none; }
+  .comp-logos-mobile { display: flex; justify-content: flex-end; margin-bottom: 12px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .comp-logos-mobile .comp-logos-inner { display: flex; gap: 24px; padding: 0 0 0 24px; align-items: center; }
+  .comp-logos-mobile img { height: 18px; width: auto; }
+  .comp-scores img:nth-child(2), .comp-scores img:nth-child(3) { display: none; }
+  .comp-table.show-openclaw .comp-scores img:nth-child(2) { display: block; }
+  .comp-table.show-chatgpt .comp-scores img:nth-child(3) { display: block; }
+  .comp-scores { gap: 32px; justify-content: flex-end; }
   .comp-row { padding: 16px 0 16px 16px; }
   .comp-row-text { font-size: 13px; }
   .comp-legend { flex-direction: column; gap: 16px; }
@@ -666,10 +680,10 @@ img { display: block; max-width: 100%; }
   .comp-row { padding: 14px 0 14px 12px; gap: 8px; }
   .comp-row-icon { width: 18px; height: 18px; }
   .comp-row-text { font-size: 12px; }
-  .comp-scores { gap: 16px; padding: 0 12px; }
+  .comp-scores { gap: 24px; padding: 0 12px; }
   .comp-scores img { width: 20px; height: 20px; }
-  .comp-logos img { height: 16px; }
-  .comp-logos .comp-logos-inner { gap: 16px; padding: 0 0 0 12px; }
+  .comp-logos-mobile img { height: 14px; }
+  .comp-logos-mobile .comp-logos-inner { gap: 12px; padding: 0 0 0 12px; }
   .comp-legend { padding: 16px 0; }
   .comp-legend-l { font-size: 12px; }
   .comp-legend-r { font-size: 12px; gap: 12px; }
@@ -1105,6 +1119,10 @@ img { display: block; max-width: 100%; }
   <div class="comp-inner">
     <div class="comp-head reveal"><h2>How Duo <span class="si">Compares.</span></h2><p>Here's how Duo compares to OpenClaw and ChatGPT</p></div>
     <div class="reveal">
+      <div class="comp-tabs">
+        <button class="comp-tab active" data-comp="openclaw"><img src="assets/openclaw-logo.svg" alt=""> vs Duo</button>
+        <button class="comp-tab" data-comp="chatgpt"><img src="assets/chat-gpt-logo.svg" alt=""> vs Duo</button>
+      </div>
       <div class="comp-logos">
         <div class="comp-logos-inner">
           <img src="assets/duo-logo.svg" alt="Duo">
@@ -1112,7 +1130,13 @@ img { display: block; max-width: 100%; }
           <img src="assets/chat-gpt-logo.svg" alt="ChatGPT">
         </div>
       </div>
-      <div class="comp-table">
+      <div class="comp-logos-mobile">
+        <div class="comp-logos-inner">
+          <img src="assets/duo-logo.svg" alt="Duo">
+          <img class="comp-mobile-competitor" src="assets/openclaw-logo.svg" alt="OpenClaw">
+        </div>
+      </div>
+      <div class="comp-table show-openclaw">
         <div class="comp-table-hl"></div>
         <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M13 19c0 .34.04.67.09 1H6.5c-1.5 0-2.81-.5-3.89-1.57C1.54 17.38 1 16.09 1 14.58q0-1.95 1.17-3.48C3.34 9.57 4 9.43 5.25 9.15c.42-1.53 1.25-2.77 2.5-3.72S10.42 4 12 4c1.95 0 3.6.68 4.96 2.04S19 9.05 19 11c1.15.13 2.1.63 2.86 1.5c.51.57.84 1.21 1 1.92A5.9 5.9 0 0 0 19 13c-3.31 0-6 2.69-6 6m4.75.43l-1.59-1.59L15 19l2.75 3l4.75-4.75l-1.16-1.41z"/></svg><div class="comp-row-text">Instant cloud setup, no hardware necessary</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/none-icon.svg" alt=""></div></div>
         <div class="comp-row"><svg class="comp-row-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#111" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v5.325q-.45-.325-.95-.575T20 10.325V8H4v4h9q-.975.95-1.537 2.238T10.9 17q0 .8.175 1.563t.5 1.437zm13.9.5L14.4 17q-.325-.325-.462-.7t-.138-.75q0-.8.575-1.425t1.475-.625q.7 0 1.1.325t.95.875q.5-.5.913-.85t1.137-.35q.925 0 1.488.638T22 15.574q0 .375-.15.75T21.4 17z"/></svg><div class="comp-row-text">Free to use</div><div class="comp-scores"><img src="assets/check-icon-white.svg" alt=""><img src="assets/limited-icon.svg" alt=""><img src="assets/check-icon-grey.svg" alt=""></div></div>
@@ -1302,6 +1326,23 @@ if (footerCanvas) {
     console.error('Footer Spline load failed:', e);
   }
 }
+
+// Comparison tabs (mobile)
+document.querySelectorAll('.comp-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.comp-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const comp = tab.dataset.comp;
+    const table = document.querySelector('.comp-table');
+    table.classList.remove('show-openclaw', 'show-chatgpt');
+    table.classList.add('show-' + comp);
+    const mobileLogo = document.querySelector('.comp-mobile-competitor');
+    if (mobileLogo) {
+      mobileLogo.src = comp === 'openclaw' ? 'assets/openclaw-logo.svg' : 'assets/chat-gpt-logo.svg';
+      mobileLogo.alt = comp === 'openclaw' ? 'OpenClaw' : 'ChatGPT';
+    }
+  });
+});
 
 // Footer orb color rotation
 const ctaSection = document.querySelector('.bottom-cta');
