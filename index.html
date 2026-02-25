@@ -592,7 +592,7 @@ img { display: block; max-width: 100%; }
   .duo-ava { width: 34px; height: 34px; }
   .duo-name { font-size: 13px; }
   .duo-sub { font-size: 12px; }
-  .carousel-card { width: 290px; height: 460px; }
+  .carousel-card { width: 75vw; height: 460px; }
   .sec-head { padding: 100px 20px 0; }
   .sec-head p { font-size: 15px; }
   .features-grid { grid-template-columns: 1fr; padding: 0 20px 40px; gap: 20px; }
@@ -663,7 +663,7 @@ img { display: block; max-width: 100%; }
   .duo-name { font-size: 12px; }
   .duo-sub { font-size: 11px; }
   .carousel { padding: 32px 0 0; padding-left: 16px; padding-right: 16px; }
-  .carousel-card { width: 260px; height: 420px; padding: 16px; }
+  .carousel-card { width: 80vw; height: 420px; padding: 16px; }
   .carousel-card-title { font-size: 19px; }
   .chat-bubble { font-size: 12px; padding: 8px 12px; }
   .carousel .splide__arrows { padding: 32px 0 0; }
@@ -1404,8 +1404,8 @@ new Splide('#duo-carousel', {
   },
   easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
   breakpoints: {
-    768: { fixedWidth: '290px', fixedHeight: '460px', gap: '12px', perPage: 1, focus: 'center', padding: { left: '1.5%', right: '1.5%' } },
-    480: { fixedWidth: '260px', fixedHeight: '420px', gap: '10px', perPage: 1, focus: 'center', padding: { left: '1.5%', right: '1.5%' } }
+    768: { fixedWidth: '75vw', fixedHeight: '460px', gap: '12px', perPage: 1, focus: 'center' },
+    480: { fixedWidth: '80vw', fixedHeight: '420px', gap: '10px', perPage: 1, focus: 'center' }
   }
 }).mount(isMobile ? {} : { AutoScroll: window.splide.Extensions.AutoScroll });
 
