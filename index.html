@@ -50,12 +50,9 @@ img { display: block; max-width: 100%; }
 .nav-logo { display: flex; align-items: center; }
 .nav-logo img { height: 28px; width: auto; }
 .nav-logo-svg { height: 28px; width: auto; }
-.nav-logo-svg .logo-ring { fill-opacity: 0; stroke: black; stroke-width: 1.5; stroke-dasharray: 120; stroke-dashoffset: 120; animation: logo-draw 1.4s cubic-bezier(.4,0,.2,1) forwards, logo-fill .5s ease 1s forwards; }
-.nav-logo-svg .logo-ring-right { animation-delay: .15s, 1.15s; }
-.nav-logo-svg .logo-text { }
-@keyframes logo-draw { to { stroke-dashoffset: 0; } }
-@keyframes logo-fill { to { fill-opacity: 1; } }
-@keyframes logo-fade { to { opacity: 1; } }
+.nav-logo-svg .logo-ring { opacity: 0; transform-origin: center; transform: scale(.85) rotate(-45deg); animation: logo-ring-in .8s cubic-bezier(.22,1,.36,1) forwards; }
+.nav-logo-svg .logo-ring-right { animation-delay: .12s; }
+@keyframes logo-ring-in { to { opacity: 1; transform: scale(1) rotate(0deg); } }
 .nav-links { flex: 1; display: flex; align-items: center; justify-content: center; gap: 20px; }
 .nav-links a { font-weight: 500; font-size: 14px; color: var(--text-secondary); transition: color .2s; }
 .nav-links a:hover { color: var(--black); }
