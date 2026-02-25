@@ -1292,6 +1292,8 @@ if (container && canvas) {
     }
 
     const orb = findOrb(spline);
+    let heroRafId = null;
+    let startHeroLoop = null;
     if (orb) {
       console.log('Spline orb found:', orb.name || 'unnamed', orb.position);
       const baseY = typeof orb.position.y === 'number' ? orb.position.y : 0;
@@ -1301,12 +1303,23 @@ if (container && canvas) {
       function applyOrbY() {
         const o = findOrb(spline);
         if (o && ORB_POSITION_OFFSET.y != null) o.position.y = targetY;
-        requestAnimationFrame(applyOrbY);
+        heroRafId = requestAnimationFrame(applyOrbY);
       }
+      startHeroLoop = applyOrbY;
       applyOrbY();
     } else {
       console.warn('Spline orb not found. Tried names:', ORB_NAMES.join(', '), '— get Group 4 ID from Spline Develop panel and set ORB_ID in code.');
     }
+
+    const heroSection = container.closest('.hero') || container;
+    const heroVisibilityObserver = new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      canvas.style.visibility = visible ? '' : 'hidden';
+      if (typeof spline.setPaused === 'function') spline.setPaused(!visible);
+      if (!visible && heroRafId != null) { cancelAnimationFrame(heroRafId); heroRafId = null; }
+      if (visible && startHeroLoop) startHeroLoop();
+    }, { threshold: 0, rootMargin: '0px' });
+    heroVisibilityObserver.observe(heroSection);
 
     window.moveSplineCamera = (x, y, z) => {
       const c = getSplineCamera(spline);
@@ -1326,26 +1339,34 @@ if (container && canvas) {
   }
 }
 
-// Footer Spline orb — lazy-load when section is near viewport
+// Footer Spline orb — lazy-load when section is near viewport, pause when out of view
 const footerCanvas = document.getElementById('footer-spline-canvas');
 const bottomCta = document.querySelector('.bottom-cta');
 if (footerCanvas && bottomCta) {
+  let footerSplineApp = null;
   const loadFooterSpline = async () => {
     try {
       const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
-      const footerSpline = new Application(footerCanvas);
-      await footerSpline.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
+      footerSplineApp = new Application(footerCanvas);
+      await footerSplineApp.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
       footerCanvas.closest('.bottom-cta-orb').classList.add('loaded');
     } catch (e) {
       console.error('Footer Spline load failed:', e);
     }
   };
-  const footerIo = new IntersectionObserver((entries) => {
+  const footerLoadIo = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) return;
-    footerIo.disconnect();
+    footerLoadIo.disconnect();
     loadFooterSpline();
   }, { rootMargin: '200px', threshold: 0 });
-  footerIo.observe(bottomCta);
+  footerLoadIo.observe(bottomCta);
+
+  const footerVisibilityIo = new IntersectionObserver((entries) => {
+    const visible = entries[0].isIntersecting;
+    footerCanvas.style.visibility = visible ? '' : 'hidden';
+    if (footerSplineApp && typeof footerSplineApp.setPaused === 'function') footerSplineApp.setPaused(!visible);
+  }, { threshold: 0, rootMargin: '0px' });
+  footerVisibilityIo.observe(bottomCta);
 }
 
 // Comparison tabs (mobile)
