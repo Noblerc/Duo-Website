@@ -666,6 +666,7 @@ img { display: block; max-width: 100%; }
   .carousel-card { width: 260px; height: 420px; padding: 16px; }
   .carousel-card-title { font-size: 19px; }
   .chat-bubble { font-size: 12px; padding: 8px 12px; }
+  .carousel .splide__track { overflow: hidden; }
   .carousel .splide__arrows { padding: 32px 0 0; }
   .carousel .splide__arrow { width: 38px; height: 38px; }
   .sec-head { padding: 80px 16px 0; }
@@ -1394,7 +1395,7 @@ var carouselOpts = {
   arrows: true,
   fixedWidth: '345px',
   fixedHeight: '516px',
-  trimSpace: isMobile ? true : false,
+  trimSpace: false,
   drag: isMobile ? true : 'free',
   focus: isMobile ? 'center' : undefined,
   easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
