@@ -430,6 +430,7 @@ img { display: block; max-width: 100%; }
 
 /* ── FEATURES GRID ── */
 .features-grid { max-width: var(--max-w); margin: 48px auto 0; padding: 0 24px 120px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.features-cta { text-align: center; padding: 0 24px 120px; margin-top: -72px; }
 .fcard { background: #f5f5f5; border-radius: var(--radius-lg); overflow: hidden; height: 408px; display: flex; flex-direction: column; position: relative; }
 .fcard-top { padding: 32px 32px 0; flex-shrink: 0; }
 .fcard-top h3 { font-size: 24px; font-weight: 500; line-height: 24px; margin-bottom: 8px; }
@@ -587,7 +588,8 @@ img { display: block; max-width: 100%; }
   .carousel-card { width: 290px; height: 460px; }
   .sec-head { padding: 100px 20px 0; }
   .sec-head p { font-size: 15px; }
-  .features-grid { grid-template-columns: 1fr; padding: 0 20px 80px; gap: 20px; }
+  .features-grid { grid-template-columns: 1fr; padding: 0 20px 40px; gap: 20px; }
+  .features-cta { padding: 0 20px 80px; margin-top: -16px; }
   .fcard { height: auto; min-height: 364px; }
   .fcard-top { padding: 24px 24px 0; }
   .fcard-top h3 { font-size: 20px; }
@@ -651,7 +653,8 @@ img { display: block; max-width: 100%; }
   .sec-head { padding: 80px 16px 0; }
   .sec-head h2 { margin-bottom: 16px; }
   .sec-head p { font-size: 14px; }
-  .features-grid { margin-top: 32px; padding: 0 16px 60px; gap: 16px; }
+  .features-grid { margin-top: 32px; padding: 0 16px 32px; gap: 16px; }
+  .features-cta { padding: 0 16px 60px; margin-top: -8px; }
   .fcard { min-height: 364px; border-radius: 20px; }
   .fcard-top { padding: 20px 20px 0; }
   .fcard-top h3 { font-size: 18px; line-height: 1.2; }
@@ -1093,7 +1096,7 @@ img { display: block; max-width: 100%; }
   <div class="fcard fcard-cta reveal rd1"><div class="fcard-top"><h3>Free to Try</h3><p>Create your own Duo today for free and see the difference for yourself.</p></div><div class="fcard-vis" style="padding:0;align-items:flex-end;"><img src="assets/free-to-try.png" alt="Free to try illustration" style="width:100%;height:auto;object-fit:unset;flex-shrink:0;"></div></div>
   <div class="fcard reveal rd2"><div class="fcard-top"><h3>Surprisingly Fun</h3><p>Your Duo is not just another chatbot that spits out answers. It thinks, it feels, it journals, it reacts, it makes friends.</p></div><div class="fcard-vis" style="align-items:center;"><img src="assets/surprisingly-fun.png" alt="Fun illustration" style="width:65%;"></div></div>
 </div>
-<div style="text-align:center;padding:0 24px 120px;margin-top:-72px;">
+<div class="features-cta">
   <a href="https://duo-mind-spark.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn-dark">Create Your Duo For Free <span class="arrow"><img src="dot-arrow.svg" alt=""></span></a>
 </div>
 
