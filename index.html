@@ -1343,6 +1343,7 @@ document.querySelectorAll('.comp-tab').forEach(tab => {
     if (mobileLogo) {
       mobileLogo.src = comp === 'openclaw' ? 'assets/openclaw-logo.svg' : 'assets/chat-gpt-logo.svg';
       mobileLogo.alt = comp === 'openclaw' ? 'OpenClaw' : 'ChatGPT';
+      mobileLogo.style.transform = comp === 'chatgpt' ? 'scale(1.3)' : '';
     }
   });
 });
