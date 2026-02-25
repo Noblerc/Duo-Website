@@ -468,6 +468,8 @@ img { display: block; max-width: 100%; }
 .comp-tab img { height: 16px; width: auto; }
 .comp-tab.active { background: var(--black); color: #fff; border-color: var(--black); }
 .comp-logos-mobile { display: none; }
+.comp-mobile-competitor-wrap { display: inline-flex; justify-content: center; width: 72px; }
+.comp-mobile-competitor-wrap img { height: 100%; max-width: 100%; object-fit: contain; }
 .comp-legend-item { display: flex; align-items: center; gap: 8px; }
 .comp-legend-item img { width: 20px; height: 20px; }
 
@@ -1134,7 +1136,7 @@ img { display: block; max-width: 100%; }
       <div class="comp-logos-mobile">
         <div class="comp-logos-inner">
           <img src="assets/duo-logo.svg" alt="Duo">
-          <img class="comp-mobile-competitor" src="assets/openclaw-logo.svg" alt="OpenClaw" style="max-width:72px;">
+          <span class="comp-mobile-competitor-wrap"><img class="comp-mobile-competitor" src="assets/openclaw-logo.svg" alt="OpenClaw"></span>
         </div>
       </div>
       <div class="comp-table show-openclaw">
