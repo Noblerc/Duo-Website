@@ -666,7 +666,6 @@ img { display: block; max-width: 100%; }
   .carousel-card { width: 260px; height: 420px; padding: 16px; }
   .carousel-card-title { font-size: 19px; }
   .chat-bubble { font-size: 12px; padding: 8px 12px; }
-  .carousel .splide__track { overflow: hidden; }
   .carousel .splide__arrows { padding: 32px 0 0; }
   .carousel .splide__arrow { width: 38px; height: 38px; }
   .sec-head { padding: 80px 16px 0; }
@@ -1386,8 +1385,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
 
 var isMobile = window.innerWidth <= 768;
-var carouselOpts = {
-  type: isMobile ? 'slide' : 'loop',
+new Splide('#duo-carousel', {
+  type: 'loop',
   perPage: isMobile ? 1 : 3,
   perMove: 1,
   gap: '32px',
@@ -1396,19 +1395,19 @@ var carouselOpts = {
   fixedWidth: '345px',
   fixedHeight: '516px',
   trimSpace: false,
-  drag: isMobile ? true : 'free',
-  focus: isMobile ? 'center' : undefined,
+  drag: 'free',
+  focus: 'center',
+  autoScroll: {
+    speed: isMobile ? 1 : 0.2,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  },
   easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
   breakpoints: {
-    768: { fixedWidth: '290px', fixedHeight: '460px', gap: '24px', perPage: 1, focus: 'center' },
-    480: { fixedWidth: '260px', fixedHeight: '420px', gap: '20px', perPage: 1, focus: 'center' }
+    768: { fixedWidth: '290px', fixedHeight: '460px', gap: '24px', perPage: 1 },
+    480: { fixedWidth: '260px', fixedHeight: '420px', gap: '20px', perPage: 1 }
   }
-};
-if (!isMobile) {
-  carouselOpts.autoScroll = { speed: 0.2, pauseOnHover: true, pauseOnFocus: true };
-}
-var carouselExts = isMobile ? {} : { AutoScroll: window.splide.Extensions.AutoScroll };
-new Splide('#duo-carousel', carouselOpts).mount(carouselExts);
+}).mount({ AutoScroll: window.splide.Extensions.AutoScroll });
 
 (function injectCarouselArrows() {
   var root = document.getElementById('duo-carousel');
