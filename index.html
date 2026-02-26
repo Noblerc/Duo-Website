@@ -498,12 +498,14 @@ img { display: block; max-width: 100%; }
 
 /* ── BOTTOM CTA ── */
 .bottom-cta { background: var(--blue-bg); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
+.bottom-cta.orb-yumi { background: var(--blue-bg); }
 .bottom-cta.orb-sarah { background: #FFF4F7; }
 .bottom-cta.orb-david { background: #F8F5FF; }
 .bottom-cta.orb-amy { background: #FFF6EF; }
 .bottom-cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; pointer-events: none; z-index: 0; }
 .bottom-cta-orb-inner { position: relative; width: 100%; height: 100%; }
-.bottom-cta-orb-inner img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.bottom-cta-orb-inner img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
+.bottom-cta-orb-inner img.active { opacity: 1; }
 @keyframes orb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 .bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 0 24px; }
 .bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: balance; }
@@ -759,7 +761,7 @@ img { display: block; max-width: 100%; }
         <div class="hero-spline" id="hero-spline">
           <div class="hero-spline-scene">
             <div class="hero-orb-wrap">
-              <img id="hero-orb-img" src="assets/ai-orb.png" alt="" class="hero-orb-img active">
+              <img id="hero-orb-img" src="assets/ai-orb.png?v=2" alt="" class="hero-orb-img active">
               <img src="assets/orb-img-pink.png" alt="" class="hero-orb-img">
               <img src="assets/orb-img-purple.png" alt="" class="hero-orb-img">
               <img src="assets/orb-img-orange.png" alt="" class="hero-orb-img">
@@ -809,7 +811,7 @@ img { display: block; max-width: 100%; }
               <div class="chat-avatar" aria-hidden="true"></div>
               <div class="dc-ai-text">💯 Done! I just sent her a message.</div>
             </div>
-            <div class="chat-phone-block"><img src="assets/yumi-sticker.png" alt="" class="dc-success"></div>
+            <div class="chat-phone-block"><img src="assets/ai-orb.png?v=2" alt="" class="dc-success"></div>
           </div>
           <div class="chat-phone-panel duo-chat" data-index="1">
             <div class="chat-phone-header">
@@ -1193,7 +1195,10 @@ img { display: block; max-width: 100%; }
 <section class="bottom-cta" id="cta">
   <div class="bottom-cta-orb">
   <div class="bottom-cta-orb-inner">
-    <img src="assets/ai-orb.png" alt="">
+    <img src="assets/ai-orb.png?v=2" alt="" class="active">
+    <img src="assets/orb-img-pink.png" alt="">
+    <img src="assets/orb-img-purple.png" alt="">
+    <img src="assets/orb-img-orange.png" alt="">
   </div>
 </div>
   <div class="bottom-cta-content reveal">
@@ -1279,16 +1284,26 @@ document.querySelectorAll('.comp-tab').forEach(tab => {
   });
 });
 
-// Footer orb color rotation
+// Footer orb: rotate 4 orbs and animate background to match
 const ctaSection = document.querySelector('.bottom-cta');
 if (ctaSection) {
-  const orbColors = [null, 'orb-sarah', 'orb-david', 'orb-amy'];
+  const orbColors = ['orb-yumi', 'orb-sarah', 'orb-david', 'orb-amy'];
+  const orbInner = ctaSection.querySelector('.bottom-cta-orb-inner');
   let orbIdx = 0;
+  function setFooterOrb(i) {
+    orbIdx = i;
+    ctaSection.classList.remove('orb-yumi', 'orb-sarah', 'orb-david', 'orb-amy');
+    ctaSection.classList.add(orbColors[orbIdx]);
+    if (orbInner) {
+      orbInner.querySelectorAll('img').forEach(function(im, j) {
+        im.classList.toggle('active', j === orbIdx);
+      });
+    }
+  }
   setInterval(() => {
-    ctaSection.classList.remove('orb-sarah', 'orb-david', 'orb-amy');
-    orbIdx = (orbIdx + 1) % orbColors.length;
-    if (orbColors[orbIdx]) ctaSection.classList.add(orbColors[orbIdx]);
+    setFooterOrb((orbIdx + 1) % orbColors.length);
   }, 3000);
+  setFooterOrb(0);
 }
 </script>
 <script>
