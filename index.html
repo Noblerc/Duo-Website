@@ -55,8 +55,7 @@ img { display: block; max-width: 100%; }
 .nav-right { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
 .btn-nav { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 8px 12px 8px 16px; border-radius: 8px; background: transparent; color: var(--black); border: 1px solid var(--border); transition: background .2s, border-color .2s, color .2s; -webkit-tap-highlight-color: transparent; text-decoration: none; }
 .btn-nav:hover { background: #fff; border-color: rgba(0,0,0,.15); }
-.btn-nav .arrow { display: inline-flex; align-items: center; flex-shrink: 0; transition: transform 0.2s ease; }
-.btn-nav:hover .arrow { transform: translateX(3px); }
+.btn-nav .arrow { display: inline-flex; align-items: center; flex-shrink: 0; }
 .btn-nav .arrow img { width: 16px; height: 16px; display: block; filter: brightness(0); }
 
 /* Hamburger */
@@ -88,13 +87,11 @@ img { display: block; max-width: 100%; }
   font-weight: 600; font-size: 14px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
-  transition: opacity .2s, transform .15s, box-shadow .2s;
   white-space: nowrap;
 }
-.btn-dark:hover { opacity: .95; transform: translateY(-2px) scale(1.02); box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.2); }
+.btn-dark:hover { opacity: .95; }
 .btn-dark.sm { font-size: 14px; padding: 10px 14px 10px 18px; }
-.btn-dark .arrow { display: inline-flex; align-items: center; flex-shrink: 0; transition: transform 0.2s ease; }
-.btn-dark:hover .arrow { transform: translateX(3px); }
+.btn-dark .arrow { display: inline-flex; align-items: center; flex-shrink: 0; }
 .btn-dark .arrow img { width: 20px; height: 20px; display: block; }
 .btn-blue {
   display: inline-flex; align-items: center; gap: 8px;
@@ -103,11 +100,8 @@ img { display: block; max-width: 100%; }
   font-weight: 600; font-size: 16px;
   border: none;
   box-shadow: 0 1px 2px rgba(13,126,214,0.3), 0 4px 12px rgba(13,126,214,0.15);
-  transition: opacity .2s, transform .15s, box-shadow .2s;
 }
-.btn-blue:hover { opacity: .95; transform: translateY(-2px) scale(1.02); box-shadow: 0 2px 4px rgba(13,126,214,0.4), 0 8px 20px rgba(13,126,214,0.2); }
-.btn-blue .arrow { transition: transform 0.2s ease; }
-.btn-blue:hover .arrow { transform: translateX(3px); }
+.btn-blue:hover { opacity: .95; }
 
 /* ── HERO ── */
 .hero { position: relative; overflow: hidden; border-radius: 0 0 61px 61px; }
@@ -576,7 +570,7 @@ img { display: block; max-width: 100%; }
   .hero-inner { padding: 120px 20px 40px; }
   .hero-sub { font-size: 15px; }
   .hero-right { margin-top: 0; }
-  .hero-spline { width: 340px; height: 520px; transform: translate(-50%, -50%); }
+  .hero-spline { width: 380px; height: 620px; transform: translate(-50%, -50%); }
   .chat-phone { width: 240px; height: 420px; padding: 14px 12px; }
   .duo-bar-inner { gap: 10px; justify-content: flex-start; }
   .duo-item-wrapper.active .duo-item-stroke { display: block; }
@@ -645,7 +639,7 @@ img { display: block; max-width: 100%; }
   .btn-dark { padding: 12px 14px 12px 20px; font-size: 14px; }
   .btn-blue { padding: 16px 20px 16px 28px; font-size: 16px; }
   .hero-right { margin-top: 0; }
-  .hero-spline { width: 300px; height: 460px; transform: translate(-50%, -50%); }
+  .hero-spline { width: 340px; height: 532px; transform: translate(-50%, -50%); }
   .chat-phone { width: 280px; height: 548px; padding: 16px 14px; }
   .chat-phone-header-avatar { width: 28px; height: 28px; }
   .chat-phone-header-name { font-size: 12px; }
