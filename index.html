@@ -354,6 +354,20 @@ img { display: block; max-width: 100%; }
 .duo-item-wrapper[data-index="3"].active .duo-item:hover { background: #FF7A3C; border-color: #FF7A3C; }
 .duo-item-wrapper[data-index="3"].active .duo-item-stroke rect { stroke: #FF7A3C; }
 .duo-item.active .duo-sub { color: rgba(255,255,255,.85); }
+/* Mobile progress: dots (stroke hidden on mobile) */
+.duo-bar-progress { display: none; }
+@media (max-width: 768px) {
+  .duo-bar-progress { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 14px; padding-bottom: 4px; }
+  .duo-item-wrapper.active .duo-item-stroke { display: none !important; }
+  .duo-progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,.12); transition: background .25s ease, transform .25s ease; flex-shrink: 0; }
+  .duo-bar-progress[data-active="0"] .duo-progress-dot:nth-child(1),
+  .duo-bar-progress[data-active="1"] .duo-progress-dot:nth-child(2),
+  .duo-bar-progress[data-active="2"] .duo-progress-dot:nth-child(3),
+  .duo-bar-progress[data-active="3"] .duo-progress-dot:nth-child(4) { background: var(--blue); transform: scale(1.35); }
+  .duo-bar-progress[data-active="1"] .duo-progress-dot:nth-child(2) { background: #FF5895; }
+  .duo-bar-progress[data-active="2"] .duo-progress-dot:nth-child(3) { background: #B213F6; }
+  .duo-bar-progress[data-active="3"] .duo-progress-dot:nth-child(4) { background: #FF7A3C; }
+}
 .duo-ava { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-light), var(--blue)); flex-shrink: 0; overflow: hidden; }
 .duo-ava img { width: 100%; height: 100%; object-fit: cover; }
 .duo-name { font-size: 14px; font-weight: 600; padding-bottom: 2px; }
@@ -958,6 +972,9 @@ img { display: block; max-width: 100%; }
         <div class="duo-item-stroke" aria-hidden="true"><svg viewBox="0 0 260 72" preserveAspectRatio="none"><rect x="1" y="1" width="258" height="70" rx="20" ry="20" fill="none" stroke="#43a4f5" stroke-width="2" stroke-linejoin="round"/></svg></div>
       </div>
     </div>
+    <div class="duo-bar-progress" id="duo-bar-progress" data-active="0" aria-hidden="true">
+      <span class="duo-progress-dot"></span><span class="duo-progress-dot"></span><span class="duo-progress-dot"></span><span class="duo-progress-dot"></span>
+    </div>
   </div>
 </section>
 
@@ -1409,6 +1426,8 @@ new Splide('#duo-carousel', {
     if (next) next.classList.add('active');
     for (var p = 0; p < panels.length; p++) panels[p].classList.toggle('active', p === idx);
     restartStroke(next);
+    var progressEl = bar.querySelector('#duo-bar-progress');
+    if (progressEl) progressEl.setAttribute('data-active', String(idx));
     if (window.innerWidth <= 768 && next) {
       var inner = bar.querySelector('.duo-bar-inner');
       if (inner) {
