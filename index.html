@@ -131,12 +131,8 @@ img { display: block; max-width: 100%; }
 .hero-spline-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
 .hero-spline-loader.hidden { opacity: 0; pointer-events: none; }
 .hero-spline-scene { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 61px 61px; }
-.hero-spline-scene .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; z-index: 0; }
-.hero-spline-scene::after { content: ''; position: absolute; inset: -20px; border-radius: inherit; z-index: 1; mix-blend-mode: color; pointer-events: none; }
-.hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
-.hero-spline-phone-wrap.sarah-active .hero-spline-scene::after { background: linear-gradient(90deg, #fea9be 0%, #fea9be 100%); }
-.hero-spline-phone-wrap.david-active .hero-spline-scene::after { background: linear-gradient(90deg, #b89be6 0%, #b89be6 100%); }
-.hero-spline-phone-wrap.amy-active .hero-spline-scene::after { background: linear-gradient(90deg, #E88B5C 0%, #E88B5C 100%); }
+.hero-orb-wrap { position: relative; width: 100%; height: 100%; border-radius: inherit; }
+.hero-orb-wrap .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; z-index: 0; }
 .hero-spline-phone-wrap.sarah-active .chat-phone { background: #ffc3e06b; }
 .hero-spline-phone-wrap.david-active .chat-phone { background: rgba(226, 168, 255, .42); }
 .hero-spline-phone-wrap.amy-active .chat-phone { background: #ffa57b6b; }
@@ -504,11 +500,8 @@ img { display: block; max-width: 100%; }
 .bottom-cta.orb-david { background: #F8F5FF; }
 .bottom-cta.orb-amy { background: #FFF6EF; }
 .bottom-cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; pointer-events: none; z-index: 0; }
-.bottom-cta-orb img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.bottom-cta-orb::after { content: ''; position: absolute; inset: -20px; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
-.bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
-.bottom-cta.orb-david .bottom-cta-orb::after { background: #b89be6; }
-.bottom-cta.orb-amy .bottom-cta-orb::after { background: #E88B5C; }
+.bottom-cta-orb-inner { position: relative; width: 100%; height: 100%; }
+.bottom-cta-orb-inner img { width: 100%; height: 100%; display: block; object-fit: cover; }
 @keyframes orb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 .bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 0 24px; }
 .bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: balance; }
@@ -564,7 +557,6 @@ img { display: block; max-width: 100%; }
   .comp-logos .comp-logos-inner { gap: 60px; }
   .comp-table-hl { left: 55%; width: 70px; }
   .bottom-cta-orb { width: 320px; height: 320px; }
-  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
 }
 
 /* Tablet portrait */
@@ -576,7 +568,6 @@ img { display: block; max-width: 100%; }
   .nav-mobile { display: flex; }
   .hero { border-radius: 0 0 32px 32px; }
   .hero-spline, .hero-spline-scene { border-radius: 0 0 32px 32px; }
-  .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
   .hero h1, .sec-head h2, .comp-head h2, .test-head h2, .bottom-cta h2 { font-size: 36px; }
   .hero-inner { padding: 120px 20px 40px; }
   .hero-sub { font-size: 15px; }
@@ -765,7 +756,9 @@ img { display: block; max-width: 100%; }
         <div class="hero-spline-loader" id="hero-spline-loader"></div>
         <div class="hero-spline" id="hero-spline">
           <div class="hero-spline-scene">
-            <img id="hero-orb-img" src="assets/ai-orb.png" alt="" class="hero-orb-img">
+            <div class="hero-orb-wrap">
+              <img id="hero-orb-img" src="assets/ai-orb.png" alt="" class="hero-orb-img">
+            </div>
           </div>
         </div>
         <div class="chat-phone" id="chat-phone">
@@ -1193,7 +1186,11 @@ img { display: block; max-width: 100%; }
 
 <!-- BOTTOM CTA + FOOTER -->
 <section class="bottom-cta" id="cta">
-  <div class="bottom-cta-orb"><img src="assets/ai-orb.png" alt=""></div>
+  <div class="bottom-cta-orb">
+  <div class="bottom-cta-orb-inner">
+    <img src="assets/ai-orb.png" alt="">
+  </div>
+</div>
   <div class="bottom-cta-content reveal">
     <h2>Create <span class="si">Your</span> Duo.<br>It's Free.</h2>
     <p>Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
