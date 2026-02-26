@@ -508,6 +508,7 @@ img { display: block; max-width: 100%; }
 .bottom-cta-orb.loaded canvas { opacity: 1; }
 .bottom-cta-orb-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
 .bottom-cta-orb.loaded .bottom-cta-orb-loader { opacity: 0; pointer-events: none; }
+.bottom-cta-orb.static-fallback::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle, rgba(144,206,254,0.35) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
 @keyframes orb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 .bottom-cta-orb::after { content: ''; position: absolute; inset: 0; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
 .bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
@@ -1274,7 +1275,8 @@ function findOrb(spline) {
   return null;
 }
 
-if (container && canvas) {
+const isMobileView = window.matchMedia('(max-width: 768px)').matches;
+if (container && canvas && !isMobileView) {
   try {
     const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
     const spline = new Application(canvas);
@@ -1337,14 +1339,22 @@ if (container && canvas) {
     const heroLoader = document.getElementById('hero-spline-loader');
     if (heroLoader) heroLoader.classList.add('hidden');
   }
+} else if (container && isMobileView) {
+  container.classList.add('loaded');
+  const heroLoader = document.getElementById('hero-spline-loader');
+  if (heroLoader) heroLoader.classList.add('hidden');
 }
 
-// Footer Spline orb — lazy-load when section is near viewport, pause when out of view
+// Footer Spline orb — lazy-load when section is near viewport, pause when out of view; skip entirely on mobile
 const footerCanvas = document.getElementById('footer-spline-canvas');
 const bottomCta = document.querySelector('.bottom-cta');
 if (footerCanvas && bottomCta) {
   let footerSplineApp = null;
   const loadFooterSpline = async () => {
+    if (isMobileView) {
+      footerCanvas.closest('.bottom-cta-orb').classList.add('loaded', 'static-fallback');
+      return;
+    }
     try {
       const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
       footerSplineApp = new Application(footerCanvas);
@@ -1361,12 +1371,14 @@ if (footerCanvas && bottomCta) {
   }, { rootMargin: '200px', threshold: 0 });
   footerLoadIo.observe(bottomCta);
 
-  const footerVisibilityIo = new IntersectionObserver((entries) => {
-    const visible = entries[0].isIntersecting;
-    footerCanvas.style.visibility = visible ? '' : 'hidden';
-    if (footerSplineApp && typeof footerSplineApp.setPaused === 'function') footerSplineApp.setPaused(!visible);
-  }, { threshold: 0, rootMargin: '0px' });
-  footerVisibilityIo.observe(bottomCta);
+  if (!isMobileView) {
+    const footerVisibilityIo = new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      footerCanvas.style.visibility = visible ? '' : 'hidden';
+      if (footerSplineApp && typeof footerSplineApp.setPaused === 'function') footerSplineApp.setPaused(!visible);
+    }, { threshold: 0, rootMargin: '0px' });
+    footerVisibilityIo.observe(bottomCta);
+  }
 }
 
 // Comparison tabs (mobile)
