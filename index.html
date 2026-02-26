@@ -117,18 +117,18 @@ img { display: block; max-width: 100%; }
 .hero { position: relative; overflow: hidden; border-radius: 0 0 61px 61px; }
 .hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, var(--hero-left) 0%, var(--hero-left) 38%, var(--hero-right) 100%);
+  background: linear-gradient(90deg, var(--orb-yumi-bg-footer) 0%, var(--orb-yumi-bg-footer) 38%, var(--orb-yumi-bg-footer) 100%);
   overflow: hidden; z-index: 0;
   transition: background .4s ease;
 }
 .hero:has(.hero-spline-phone-wrap.sarah-active) .hero-bg {
-  background: linear-gradient(90deg, var(--orb-sarah-bg) 0%, var(--orb-sarah-bg) 38%, var(--orb-sarah-bg) 100%);
+  background: linear-gradient(90deg, var(--orb-sarah-bg-footer) 0%, var(--orb-sarah-bg-footer) 38%, var(--orb-sarah-bg-footer) 100%);
 }
 .hero:has(.hero-spline-phone-wrap.david-active) .hero-bg {
-  background: linear-gradient(90deg, var(--orb-david-bg) 0%, var(--orb-david-bg) 38%, var(--orb-david-bg) 100%);
+  background: linear-gradient(90deg, var(--orb-david-bg-footer) 0%, var(--orb-david-bg-footer) 38%, var(--orb-david-bg-footer) 100%);
 }
 .hero:has(.hero-spline-phone-wrap.amy-active) .hero-bg {
-  background: linear-gradient(90deg, var(--orb-amy-bg) 0%, var(--orb-amy-bg) 38%, var(--orb-amy-bg) 100%);
+  background: linear-gradient(90deg, var(--orb-amy-bg-footer) 0%, var(--orb-amy-bg-footer) 38%, var(--orb-amy-bg-footer) 100%);
 }
 .hero-spline { position: absolute; width: 470px; height: 767px; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 0; overflow: hidden; border-radius: 0 0 61px 61px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .hero-spline.loaded { opacity: 1; }
