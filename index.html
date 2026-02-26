@@ -21,6 +21,11 @@
   --white: #FFFFFF;
   --hero-left: #F0F8FF;
   --hero-right: #F0F8FF;
+  /* Orb hues (hero + footer) */
+  --orb-yumi-bg: #F0F8FF;
+  --orb-sarah-bg: #FFF4F7;
+  --orb-david-bg: #F8F5FF;
+  --orb-amy-bg: #FFF6EF;
   --text-secondary: rgba(0, 0, 0, 0.72);
   --text-muted: rgba(0, 0, 0, 0.5);
   --border: rgba(0, 0, 0, 0.06);
@@ -112,13 +117,13 @@ img { display: block; max-width: 100%; }
   transition: background .4s ease;
 }
 .hero:has(.hero-spline-phone-wrap.sarah-active) .hero-bg {
-  background: linear-gradient(90deg, #FFF4F7 0%, #FFF4F7 38%, #FFF4F7 100%);
+  background: linear-gradient(90deg, var(--orb-sarah-bg) 0%, var(--orb-sarah-bg) 38%, var(--orb-sarah-bg) 100%);
 }
 .hero:has(.hero-spline-phone-wrap.david-active) .hero-bg {
-  background: linear-gradient(90deg, #F8F5FF 0%, #F8F5FF 38%, #F8F5FF 100%);
+  background: linear-gradient(90deg, var(--orb-david-bg) 0%, var(--orb-david-bg) 38%, var(--orb-david-bg) 100%);
 }
 .hero:has(.hero-spline-phone-wrap.amy-active) .hero-bg {
-  background: linear-gradient(90deg, #FFF6EF 0%, #FFF6EF 38%, #FFF6EF 100%);
+  background: linear-gradient(90deg, var(--orb-amy-bg) 0%, var(--orb-amy-bg) 38%, var(--orb-amy-bg) 100%);
 }
 .hero-spline { position: absolute; width: 470px; height: 767px; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 0; overflow: hidden; border-radius: 0 0 61px 61px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .hero-spline.loaded { opacity: 1; }
@@ -491,11 +496,11 @@ img { display: block; max-width: 100%; }
 .tcard-name { font-size: 14px; font-weight: 500; }
 
 /* ── BOTTOM CTA ── */
-.bottom-cta { background: var(--blue-bg); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
-.bottom-cta.orb-yumi { background: var(--blue-bg); }
-.bottom-cta.orb-sarah { background: #FFF4F7; }
-.bottom-cta.orb-david { background: #F8F5FF; }
-.bottom-cta.orb-amy { background: #FFF6EF; }
+.bottom-cta { background: var(--orb-yumi-bg); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
+.bottom-cta.orb-yumi { background: var(--orb-yumi-bg); }
+.bottom-cta.orb-sarah { background: var(--orb-sarah-bg); }
+.bottom-cta.orb-david { background: var(--orb-david-bg); }
+.bottom-cta.orb-amy { background: var(--orb-amy-bg); }
 .bottom-cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 520px; height: 520px; pointer-events: none; z-index: 0; }
 .bottom-cta-orb-inner { position: relative; width: 100%; height: 100%; }
 .bottom-cta-orb-inner img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
