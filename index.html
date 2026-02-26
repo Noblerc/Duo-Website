@@ -132,7 +132,8 @@ img { display: block; max-width: 100%; }
 .hero-spline-loader.hidden { opacity: 0; pointer-events: none; }
 .hero-spline-scene { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 61px 61px; }
 .hero-orb-wrap { position: relative; width: 100%; height: 100%; border-radius: inherit; }
-.hero-orb-wrap .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; z-index: 0; }
+.hero-orb-wrap .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; z-index: 0; opacity: 0; transition: opacity 0.35s ease; }
+.hero-orb-wrap .hero-orb-img.active { opacity: 1; }
 .hero-spline-phone-wrap.sarah-active .chat-phone { background: #ffe8ee; }
 .hero-spline-phone-wrap.david-active .chat-phone { background: #f3e5f9; }
 .hero-spline-phone-wrap.amy-active .chat-phone { background: #ffefe6; }
@@ -757,7 +758,10 @@ img { display: block; max-width: 100%; }
         <div class="hero-spline" id="hero-spline">
           <div class="hero-spline-scene">
             <div class="hero-orb-wrap">
-              <img id="hero-orb-img" src="assets/ai-orb.png" alt="" class="hero-orb-img">
+              <img id="hero-orb-img" src="assets/ai-orb.png" alt="" class="hero-orb-img active">
+              <img src="assets/orb-img-pink.png" alt="" class="hero-orb-img">
+              <img src="assets/orb-img-purple.png" alt="" class="hero-orb-img">
+              <img src="assets/orb-img-orange.png" alt="" class="hero-orb-img">
             </div>
           </div>
         </div>
@@ -1367,7 +1371,7 @@ new Splide('#duo-carousel', {
   }
 
   var wrap = phone.parentElement;
-  var heroOrbImg = document.getElementById('hero-orb-img');
+  var heroOrbWrap = wrap && wrap.querySelector('.hero-orb-wrap');
   function goTo(i) {
     var prev = wrappers[idx];
     var item = prev && prev.querySelector('.duo-item');
@@ -1379,8 +1383,10 @@ new Splide('#duo-carousel', {
     if (wrap) wrap.classList.toggle('sarah-active', idx === 1);
     if (wrap) wrap.classList.toggle('david-active', idx === 2);
     if (wrap) wrap.classList.toggle('amy-active', idx === 3);
-    if (heroOrbImg) {
-      heroOrbImg.src = idx === 1 ? 'assets/orb-img-pink.png' : idx === 2 ? 'assets/orb-img-purple.png' : idx === 3 ? 'assets/orb-img-orange.png' : 'assets/ai-orb.png';
+    if (heroOrbWrap) {
+      heroOrbWrap.querySelectorAll('.hero-orb-img').forEach(function(im, j) {
+        im.classList.toggle('active', j === idx);
+      });
     }
     var next = wrappers[idx];
     item = next && next.querySelector('.duo-item');
