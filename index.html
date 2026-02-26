@@ -131,7 +131,7 @@ img { display: block; max-width: 100%; }
 .hero-spline-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
 .hero-spline-loader.hidden { opacity: 0; pointer-events: none; }
 .hero-spline-scene { position: absolute; inset: 0; overflow: hidden; border-radius: 0 0 61px 61px; }
-.hero-spline-scene canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.hero-spline-scene .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; z-index: 0; }
 .hero-spline-scene::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; z-index: 1; mix-blend-mode: color; pointer-events: none; }
 .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
 .hero-spline-phone-wrap.sarah-active .hero-spline-scene::after { background: linear-gradient(90deg, #fea9be 0%, #fea9be 100%); }
@@ -756,7 +756,7 @@ img { display: block; max-width: 100%; }
         <div class="hero-spline-loader" id="hero-spline-loader"></div>
         <div class="hero-spline" id="hero-spline">
           <div class="hero-spline-scene">
-            <canvas id="spline-canvas"></canvas>
+            <img id="hero-orb-img" src="assets/hero-orb.png" alt="" class="hero-orb-img">
           </div>
         </div>
         <div class="chat-phone" id="chat-phone">
@@ -1231,100 +1231,23 @@ img { display: block; max-width: 100%; }
 </footer>
 
 <script type="module">
-// Spline Runtime — load scene, move orb behind phone
-const container = document.getElementById('hero-spline');
-const canvas = document.getElementById('spline-canvas');
-const CAMERA_NAMES = ['Camera', 'Main Camera', 'Orthographic Camera', 'Perspective Camera'];
-const CAMERA_POSITION = { x: -3.5, y: 4, z: 8 };
-const ORB_NAMES = ['Group 4', 'Group4', 'Group 3', 'Group3', 'Orb', 'Sphere', 'Object', 'Mesh', 'Group', 'Scene'];
-const ORB_POSITION_OFFSET = { y: -6 };
-// If findObjectByName doesn't find Group 4, set Group 4's ID from Spline (right panel → Develop → copy ID)
-const ORB_ID = null; // e.g. 'ABC123-...'
-
-function getSplineCamera(spline) {
-  for (const name of CAMERA_NAMES) {
-    const cam = spline.findObjectByName(name);
-    if (cam) return cam;
-  }
-  return null;
-}
-
-function findOrb(spline) {
-  if (ORB_ID && spline.findObjectById) {
-    const byId = spline.findObjectById(ORB_ID);
-    if (byId) return byId;
-  }
-  for (const name of ORB_NAMES) {
-    const obj = spline.findObjectByName(name);
-    if (obj) return obj;
-  }
-  return null;
-}
-
-if (container && canvas) {
-  try {
-    const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
-    const spline = new Application(canvas);
-    await spline.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
-    container.classList.add('loaded');
-    const heroLoader = document.getElementById('hero-spline-loader');
-    if (heroLoader) heroLoader.classList.add('hidden');
-    window.splineRuntime = spline;
-
-    const cam = getSplineCamera(spline);
-    if (cam) {
-      cam.position.x = CAMERA_POSITION.x;
-      cam.position.y = CAMERA_POSITION.y;
-      cam.position.z = CAMERA_POSITION.z;
-    }
-
-    const orb = findOrb(spline);
-    let heroRafId = null;
-    let startHeroLoop = null;
-    if (orb) {
-      console.log('Spline orb found:', orb.name || 'unnamed', orb.position);
-      const baseY = typeof orb.position.y === 'number' ? orb.position.y : 0;
-      const targetY = baseY + (ORB_POSITION_OFFSET.y ?? 0);
-      if (ORB_POSITION_OFFSET.x != null) orb.position.x = (orb.position.x || 0) + ORB_POSITION_OFFSET.x;
-      if (ORB_POSITION_OFFSET.z != null) orb.position.z = (orb.position.z || 0) + ORB_POSITION_OFFSET.z;
-      function applyOrbY() {
-        const o = findOrb(spline);
-        if (o && ORB_POSITION_OFFSET.y != null) o.position.y = targetY;
-        heroRafId = requestAnimationFrame(applyOrbY);
-      }
-      startHeroLoop = applyOrbY;
-      applyOrbY();
-    } else {
-      console.warn('Spline orb not found. Tried names:', ORB_NAMES.join(', '), '— get Group 4 ID from Spline Develop panel and set ORB_ID in code.');
-    }
-
-    const heroSection = container.closest('.hero') || container;
-    const heroVisibilityObserver = new IntersectionObserver((entries) => {
-      const visible = entries[0].isIntersecting;
-      canvas.style.visibility = visible ? '' : 'hidden';
-      if (typeof spline.setPaused === 'function') spline.setPaused(!visible);
-      if (!visible && heroRafId != null) { cancelAnimationFrame(heroRafId); heroRafId = null; }
-      if (visible && startHeroLoop) startHeroLoop();
-    }, { threshold: 0, rootMargin: '0px' });
-    heroVisibilityObserver.observe(heroSection);
-
-    window.moveSplineCamera = (x, y, z) => {
-      const c = getSplineCamera(spline);
-      if (c) { if (x != null) c.position.x = x; if (y != null) c.position.y = y; if (z != null) c.position.z = z; return true; }
-      return false;
-    };
-    window.moveSplineOrb = (x, y, z) => {
-      const o = findOrb(spline);
-      if (o) { if (x != null) o.position.x = x; if (y != null) o.position.y = y; if (z != null) o.position.z = z; return true; }
-      return false;
-    };
-  } catch (e) {
-    console.error('Spline load failed:', e);
-    container.classList.add('loaded');
-    const heroLoader = document.getElementById('hero-spline-loader');
+// Hero orb image — show when loaded
+(function() {
+  const container = document.getElementById('hero-spline');
+  const img = document.getElementById('hero-orb-img');
+  const heroLoader = document.getElementById('hero-spline-loader');
+  function showOrb() {
+    if (container) container.classList.add('loaded');
     if (heroLoader) heroLoader.classList.add('hidden');
   }
-}
+  if (img) {
+    if (img.complete && img.naturalWidth) showOrb();
+    else {
+      img.addEventListener('load', showOrb);
+      img.addEventListener('error', function() { showOrb(); img.style.display = 'none'; });
+    }
+  } else showOrb();
+})();
 
 // Comparison tabs (mobile)
 document.querySelectorAll('.comp-tab').forEach(tab => {
