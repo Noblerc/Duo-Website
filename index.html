@@ -503,16 +503,7 @@ img { display: block; max-width: 100%; }
 .bottom-cta.orb-sarah { background: #FFF4F7; }
 .bottom-cta.orb-david { background: #F8F5FF; }
 .bottom-cta.orb-amy { background: #FFF6EF; }
-.bottom-cta-orb { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; pointer-events: none; z-index: 0; }
-.bottom-cta-orb canvas { width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .5s ease; }
-.bottom-cta-orb.loaded canvas { opacity: 1; }
-.bottom-cta-orb-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(19,151,246,.15); border-top-color: var(--blue); animation: orb-spin .8s linear infinite; z-index: 5; transition: opacity .3s; }
-.bottom-cta-orb.loaded .bottom-cta-orb-loader { opacity: 0; pointer-events: none; }
 @keyframes orb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-.bottom-cta-orb::after { content: ''; position: absolute; inset: 0; background: #90cefe; mix-blend-mode: color; pointer-events: none; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
-.bottom-cta.orb-sarah .bottom-cta-orb::after { background: #fea9be; }
-.bottom-cta.orb-david .bottom-cta-orb::after { background: #b89be6; }
-.bottom-cta.orb-amy .bottom-cta-orb::after { background: #E88B5C; }
 .bottom-cta-content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 0 24px; }
 .bottom-cta h2 { font-size: 60px; font-weight: 400; line-height: 1.07; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: balance; }
 .bottom-cta h2 .si { font-family: 'Instrument Serif', serif; font-style: italic; }
@@ -567,7 +558,6 @@ img { display: block; max-width: 100%; }
   .comp-logos .comp-logos-inner { gap: 60px; }
   .comp-table-hl { left: 55%; width: 70px; }
   .hero-spline-phone-wrap:not(.sarah-active):not(.david-active):not(.amy-active) .hero-spline-scene::after { inset: 0; background: linear-gradient(90deg, transparent 0%, #90cefe 8%, #90cefe 92%, transparent 100%); }
-  .bottom-cta-orb { width: 600px; height: 600px; }
 }
 
 /* Tablet portrait */
@@ -637,7 +627,6 @@ img { display: block; max-width: 100%; }
   .bottom-cta { min-height: 70vh; }
   .bottom-cta h2 { font-size: 36px; }
   .bottom-cta p { font-size: 15px; }
-  .bottom-cta-orb { width: 760px; height: 1300px; top: 50%; left: 50%; transform: translate(-50%, -47%) scale(0.7); }
   .sf-top { flex-direction: column; gap: 40px; }
   .sf-brand { max-width: 100%; }
   .sf-cols { gap: 32px; }
@@ -714,7 +703,6 @@ img { display: block; max-width: 100%; }
   .bottom-cta h2 { }
   .bottom-cta p { font-size: 14px; max-width: 300px; }
   .bottom-cta-content { padding: 0 16px; }
-  .bottom-cta-orb { width: 760px; height: 1300px; top: 50%; left: 50%; transform: translate(-50%, -47%) scale(0.7); }
   .site-footer { padding: 40px 16px 20px; }
   .sf-top { gap: 32px; margin-bottom: 32px; }
   .sf-cols { flex-wrap: wrap; gap: 24px; }
@@ -1196,7 +1184,6 @@ img { display: block; max-width: 100%; }
 
 <!-- BOTTOM CTA + FOOTER -->
 <section class="bottom-cta" id="cta">
-  <div class="bottom-cta-orb"><div class="bottom-cta-orb-loader"></div><canvas id="footer-spline-canvas"></canvas></div>
   <div class="bottom-cta-content reveal">
     <h2>Create <span class="si">Your</span> Duo.<br>It's Free.</h2>
     <p>Your private, hyper-personal AI companion that learns about you, acts for you, and grows with you.</p>
@@ -1337,36 +1324,6 @@ if (container && canvas) {
     const heroLoader = document.getElementById('hero-spline-loader');
     if (heroLoader) heroLoader.classList.add('hidden');
   }
-}
-
-// Footer Spline orb — lazy-load when section is near viewport, pause when out of view
-const footerCanvas = document.getElementById('footer-spline-canvas');
-const bottomCta = document.querySelector('.bottom-cta');
-if (footerCanvas && bottomCta) {
-  let footerSplineApp = null;
-  const loadFooterSpline = async () => {
-    try {
-      const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.12.57/build/runtime.js');
-      footerSplineApp = new Application(footerCanvas);
-      await footerSplineApp.load('https://prod.spline.design/DKpMNIgTAxUKblCN/scene.splinecode');
-      footerCanvas.closest('.bottom-cta-orb').classList.add('loaded');
-    } catch (e) {
-      console.error('Footer Spline load failed:', e);
-    }
-  };
-  const footerLoadIo = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) return;
-    footerLoadIo.disconnect();
-    loadFooterSpline();
-  }, { rootMargin: '200px', threshold: 0 });
-  footerLoadIo.observe(bottomCta);
-
-  const footerVisibilityIo = new IntersectionObserver((entries) => {
-    const visible = entries[0].isIntersecting;
-    footerCanvas.style.visibility = visible ? '' : 'hidden';
-    if (footerSplineApp && typeof footerSplineApp.setPaused === 'function') footerSplineApp.setPaused(!visible);
-  }, { threshold: 0, rootMargin: '0px' });
-  footerVisibilityIo.observe(bottomCta);
 }
 
 // Comparison tabs (mobile)
