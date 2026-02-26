@@ -24,8 +24,13 @@
   /* Orb hues (hero + footer) */
   --orb-yumi-bg: #afdfff6b;
   --orb-sarah-bg: #FFF4F7;
-  --orb-david-bg: #e8b1ff6b;
+  --orb-david-bg: #E9D5FF6b;
   --orb-amy-bg: #FFF6EF;
+  /* Footer: solid backgrounds to match orb images */
+  --orb-yumi-bg-footer: #D4EFFF;
+  --orb-sarah-bg-footer: #FFF4F7;
+  --orb-david-bg-footer: #E9D5FF;
+  --orb-amy-bg-footer: #FFF6EF;
   --text-secondary: rgba(0, 0, 0, 0.72);
   --text-muted: rgba(0, 0, 0, 0.5);
   --border: rgba(0, 0, 0, 0.06);
@@ -134,7 +139,7 @@ img { display: block; max-width: 100%; }
 .hero-orb-wrap .hero-orb-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; z-index: 0; opacity: 0; transition: opacity 0.35s ease; }
 .hero-orb-wrap .hero-orb-img.active { opacity: 1; }
 .hero-spline-phone-wrap.sarah-active .chat-phone { background: rgba(255, 232, 238, .42); }
-.hero-spline-phone-wrap.david-active .chat-phone { background: rgba(232, 177, 255, .42); }
+.hero-spline-phone-wrap.david-active .chat-phone { background: rgba(233, 213, 255, .42); }
 .hero-spline-phone-wrap.amy-active .chat-phone { background: rgba(255, 239, 230, .42); }
 .hero-inner {
   position: relative; z-index: 3;
@@ -510,11 +515,11 @@ img { display: block; max-width: 100%; }
 .tcard-name { font-size: 14px; font-weight: 500; }
 
 /* ── BOTTOM CTA ── */
-.bottom-cta { background: var(--orb-yumi-bg); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
-.bottom-cta.orb-yumi { background: var(--orb-yumi-bg); }
-.bottom-cta.orb-sarah { background: var(--orb-sarah-bg); }
-.bottom-cta.orb-david { background: var(--orb-david-bg); }
-.bottom-cta.orb-amy { background: var(--orb-amy-bg); }
+.bottom-cta { background: var(--orb-yumi-bg-footer); position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; justify-content: center; transition: background 1.2s cubic-bezier(.4,0,.2,1); }
+.bottom-cta.orb-yumi { background: var(--orb-yumi-bg-footer); }
+.bottom-cta.orb-sarah { background: var(--orb-sarah-bg-footer); }
+.bottom-cta.orb-david { background: var(--orb-david-bg-footer); }
+.bottom-cta.orb-amy { background: var(--orb-amy-bg-footer); }
 .bottom-cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 520px; height: 520px; pointer-events: none; z-index: 0; }
 .bottom-cta-orb-inner { position: relative; width: 100%; height: 100%; }
 .bottom-cta-orb-inner img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
