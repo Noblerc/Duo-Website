@@ -1379,7 +1379,9 @@ new Splide('#duo-carousel', {
     if (wrap) wrap.classList.toggle('sarah-active', idx === 1);
     if (wrap) wrap.classList.toggle('david-active', idx === 2);
     if (wrap) wrap.classList.toggle('amy-active', idx === 3);
-    if (heroOrbImg) heroOrbImg.src = idx === 1 ? 'assets/orb-img-pink.png' : 'assets/ai-orb.png';
+    if (heroOrbImg) {
+      heroOrbImg.src = idx === 1 ? 'assets/orb-img-pink.png' : idx === 2 ? 'assets/orb-img-purple.png' : idx === 3 ? 'assets/orb-img-orange.png' : 'assets/ai-orb.png';
+    }
     var next = wrappers[idx];
     item = next && next.querySelector('.duo-item');
     if (item) item.classList.add('active');
