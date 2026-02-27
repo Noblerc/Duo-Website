@@ -367,7 +367,7 @@ img { display: block; max-width: 100%; }
 .duo-progress-dot-stroke circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-dasharray: 44; stroke-dashoffset: 44; stroke-linecap: round; transition: stroke-dashoffset 0s; }
 .duo-progress-dot-stroke.duo-stroke-running circle { animation: duo-stroke-draw var(--duo-stroke-duration, 10s) linear forwards; }
 @media (max-width: 768px) {
-  .duo-bar-progress { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; padding-bottom: 8px; }
+  .duo-bar-progress { display: flex; justify-content: center; align-items: center; gap: 0; margin-top: 16px; padding-bottom: 8px; }
   .duo-item-wrapper.active .duo-item-stroke { display: none !important; }
   .duo-progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,.12); transition: background .25s ease, transform .25s ease; flex-shrink: 0; }
   .duo-bar-progress[data-active="0"] .duo-progress-dot-wrap:nth-child(1) .duo-progress-dot,
